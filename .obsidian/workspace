@@ -117,10 +117,12 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "active": "60323ec7efd3fc8e",
   "lastOpenFiles": [
+    "Development/Java.md",
     "Development/Maven.md",
     "Development/JAX-RS.md",
     "Development/yrdy.md",
@@ -129,7 +131,6 @@
     "Development/Back End.md",
     "Development/Front End.md",
     "API.md",
-    "Development/aspect-ratio.md",
-    "Development/Authentication.md"
+    "Development/aspect-ratio.md"
   ]
 }
