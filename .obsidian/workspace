@@ -7,7 +7,7 @@
         "id": "60323ec7efd3fc8e",
         "type": "leaf",
         "state": {
-          "type": "empty",
+          "type": "graph",
           "state": {}
         }
       }
@@ -89,7 +89,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "linksCollapsed": false,
+                "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
             }
@@ -117,20 +117,19 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
-  "active": "41864191cce69c1c",
+  "active": "60323ec7efd3fc8e",
   "lastOpenFiles": [
+    "Development/Maven.md",
+    "Development/JAX-RS.md",
+    "Development/yrdy.md",
     "Development/test.md",
     "Maven.md",
     "Development/Back End.md",
     "Development/Front End.md",
     "API.md",
     "Development/aspect-ratio.md",
-    "Development/Authentication.md",
-    "Development/Authorization.md",
-    "Development/JAX-RS.md",
-    "Development/Reseting MySQL Password.md"
+    "Development/Authentication.md"
   ]
 }
