@@ -1,0 +1,51 @@
+{
+  "collapse-filter": false,
+  "search": "tag:",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": true,
+  "colorGroups": [
+    {
+      "query": "tag:#frontend",
+      "color": {
+        "a": 1,
+        "rgb": 13652704
+      }
+    },
+    {
+      "query": "tag:#backend",
+      "color": {
+        "a": 1,
+        "rgb": 345773
+      }
+    },
+    {
+      "query": "tag:#security",
+      "color": {
+        "a": 1,
+        "rgb": 5141760
+      }
+    },
+    {
+      "query": "tag:#abstract",
+      "color": {
+        "a": 1,
+        "rgb": 16514816
+      }
+    }
+  ],
+  "collapse-display": true,
+  "showArrow": false,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 1.64157303370787,
+  "lineSizeMultiplier": 1,
+  "collapse-forces": true,
+  "centerStrength": 0.11965811965812,
+  "repelStrength": 20,
+  "linkStrength": 1,
+  "linkDistance": 30,
+  "scale": 0.1316872427983679,
+  "close": true
+}
