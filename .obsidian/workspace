@@ -122,6 +122,8 @@
   },
   "active": "60323ec7efd3fc8e",
   "lastOpenFiles": [
+    "Development/Helidon MP OpenAPI Docs Update Issue.md",
+    "Development/Helidon MP.md",
     "Development/Java.md",
     "Development/Maven.md",
     "Development/JAX-RS.md",
@@ -129,8 +131,6 @@
     "Development/test.md",
     "Maven.md",
     "Development/Back End.md",
-    "Development/Front End.md",
-    "API.md",
-    "Development/aspect-ratio.md"
+    "Development/Front End.md"
   ]
 }
