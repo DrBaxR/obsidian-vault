@@ -7,12 +7,8 @@
         "id": "60323ec7efd3fc8e",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "Development/POM.md",
-            "mode": "source",
-            "source": false
-          }
+          "type": "graph",
+          "state": {}
         }
       }
     ],
@@ -77,7 +73,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Development/POM.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +89,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Development/POM.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -116,9 +110,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Development/POM.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -128,8 +120,9 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "41864191cce69c1c",
+  "active": "60323ec7efd3fc8e",
   "lastOpenFiles": [
+    "Development/POM.md",
     "Development/API.md",
     "Development/Authentication.md",
     "Development/aspect-ratio.md",
@@ -138,7 +131,6 @@
     "Development/Front End.md",
     "Development/HTML.md",
     "Development/Trigger Animations on Scroll.md",
-    "Development/JavaScript.md",
-    "Development/Helidon MP OpenAPI Docs Update Issue.md"
+    "Development/JavaScript.md"
   ]
 }
