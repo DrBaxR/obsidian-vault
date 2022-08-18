@@ -1,3 +1,9 @@
 {
-  "items": []
+  "items": [
+    {
+      "type": "file",
+      "title": "POM",
+      "path": "Development/POM.md"
+    }
+  ]
 }
