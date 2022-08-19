@@ -7,8 +7,12 @@
         "id": "60323ec7efd3fc8e",
         "type": "leaf",
         "state": {
-          "type": "graph",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "templates/Reference Template.md",
+            "mode": "source",
+            "source": false
+          }
         }
       }
     ],
@@ -73,6 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "templates/Reference Template.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,6 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "templates/Reference Template.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -110,7 +116,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "templates/Reference Template.md"
+              }
             }
           }
         ]
@@ -122,15 +130,15 @@
   },
   "active": "60323ec7efd3fc8e",
   "lastOpenFiles": [
-    "Development/POM.md",
-    "Development/API.md",
-    "Development/Authentication.md",
-    "Development/aspect-ratio.md",
-    "Development/before & after (pseudo-elements).md",
-    "Development/Back End.md",
-    "Development/Front End.md",
-    "Development/HTML.md",
-    "Development/Trigger Animations on Scroll.md",
-    "Development/JavaScript.md"
+    "refs/Test reference note.md",
+    "refs/Introduction to the POM.md",
+    "templates/Reference Template.md",
+    "POM.md",
+    "main/Development/API.md",
+    "main/Development/Authentication.md",
+    "main/Development/aspect-ratio.md",
+    "main/Development/before & after (pseudo-elements).md",
+    "main/Development/Back End.md",
+    "main/Development/Front End.md"
   ]
 }

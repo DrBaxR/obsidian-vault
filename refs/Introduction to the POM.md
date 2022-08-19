@@ -1,4 +1,6 @@
-# POM
+Tags: #reference
+
+# Introduction to the POM
 
 - XML file that contains information about the project and configuration details used by maven to build project
 - the super POM is Maven's default POM, which all other POMs extend by default
