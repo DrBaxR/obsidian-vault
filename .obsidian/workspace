@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "templates/Reference Template.md",
+            "file": "JS OOP.md",
             "mode": "source",
             "source": false
           }
@@ -77,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "templates/Reference Template.md",
+                "file": "JS OOP.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "templates/Reference Template.md",
+                "file": "JS OOP.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -117,7 +117,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "templates/Reference Template.md"
+                "file": "JS OOP.md"
               }
             }
           }
@@ -130,15 +130,15 @@
   },
   "active": "60323ec7efd3fc8e",
   "lastOpenFiles": [
+    "JS OOP.md",
+    "templates/Reference Template.md",
     "refs/Test reference note.md",
     "refs/Introduction to the POM.md",
-    "templates/Reference Template.md",
     "POM.md",
     "main/Development/API.md",
     "main/Development/Authentication.md",
     "main/Development/aspect-ratio.md",
     "main/Development/before & after (pseudo-elements).md",
-    "main/Development/Back End.md",
-    "main/Development/Front End.md"
+    "main/Development/Back End.md"
   ]
 }
