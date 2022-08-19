@@ -7,12 +7,8 @@
         "id": "60323ec7efd3fc8e",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "JS OOP.md",
-            "mode": "source",
-            "source": false
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
@@ -77,7 +73,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JS OOP.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +89,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JS OOP.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -116,9 +110,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "JS OOP.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -128,17 +120,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "60323ec7efd3fc8e",
+  "active": "41864191cce69c1c",
   "lastOpenFiles": [
-    "JS OOP.md",
+    "test.md",
+    "templates/Main Note Template.md",
     "templates/Reference Template.md",
+    "main/Development/JS OOP.md",
+    "main/Development/ESLint & Prettier.md",
     "refs/Test reference note.md",
     "refs/Introduction to the POM.md",
     "POM.md",
     "main/Development/API.md",
-    "main/Development/Authentication.md",
-    "main/Development/aspect-ratio.md",
-    "main/Development/before & after (pseudo-elements).md",
-    "main/Development/Back End.md"
+    "main/Development/Authentication.md"
   ]
 }

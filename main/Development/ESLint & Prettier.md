@@ -3,7 +3,7 @@ tags:
  - frontend
 ---
 
-These two tools are used for [[Linting]] [[Front End]] applications. This note contains the steps that need to be followed to set them up for a project and integrated with [[VS Code]].
+These two tools are used for [[Linting]] [[Front End]] applications ([[HTML]], [[CSS]], [[JavaScript]]). This note contains the steps that need to be followed to set them up for a project and integrated with [[VS Code]].
 
 add a bunch of dev dependencies and init eslint for project
 
