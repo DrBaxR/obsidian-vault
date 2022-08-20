@@ -37,7 +37,7 @@
       "modifiers": [
         "Mod"
       ],
-      "key": "ArrowLeft"
+      "key": "ArrowDown"
     }
   ],
   "editor:focus-right": [
@@ -45,7 +45,7 @@
       "modifiers": [
         "Mod"
       ],
-      "key": "ArrowRight"
+      "key": "ArrowUp"
     }
   ]
 }
