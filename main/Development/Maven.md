@@ -19,7 +19,7 @@ file, which contains the [[POM]] for this project. Something that is note-worthy
 The structure of a Maven project (generally) follows a convention: *application* sources are found in `${baseDir}/src/main/java` and test *sources* reside in `${baseDir}/src/test/java`.
 
 ## Compile
-In order to compile the source files, you can run `mvn compile`, which will spit out the `.class` files in the `${baseDir}/target/classes` folder. **Note:** Running any Maven command will first download all the dependencies and cache them. In case they are already cached, it will no longer download them.
+In order to compile the source files, you can run `mvn compile`, which will spit out the `.class` files in the `${baseDir}/target/classes` folder. **Note:** Running any Maven command will first download all the dependencies (via the [[Maven Dependency Mechanism]]) and cache them. In case they are already cached, it will no longer download them.
 
 Compiling test files is just as simple: run `mvn test`, which will generate the compiled files in the `${baseDir}/target/test-classes`.
 
