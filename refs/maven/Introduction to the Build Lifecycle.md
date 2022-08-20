@@ -13,5 +13,7 @@ Maven has 3 built-in lifecycles:
 ### Phases
 All build lifecycles are basically a *list of phases*. A phase is a stage of a lifecycle. For example here are the [[Maven Default Lifecycle Phases]].
 
+`TODO: ...`
+
 ## Resources
 https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
