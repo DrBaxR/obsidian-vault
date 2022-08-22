@@ -5,4 +5,8 @@
 - [ ] [[HTML meta]]
 - [ ] [[JPA]]
 - [ ] [[File Transfer over HTTP]]
+- [ ] [[Classpath]]
+- [ ] [[JVM]]
+- [ ] [[JDK]]
+- [ ] [[JAR]]
 
