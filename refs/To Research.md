@@ -3,4 +3,5 @@
 - [x] [[Maven Build Lifecycle]]
 - [x] [[Maven Goal]]
 - [x] [[Maven Dependency Mechanism]]
+- [ ] [[Pure pipes (Angular)]]
 - [ ] [[Docker]]
