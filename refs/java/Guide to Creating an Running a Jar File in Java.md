@@ -38,5 +38,15 @@ This is how the manifest file produced by the command above looks like:
 Main-Class: com.baeldung.jar.JarExample
 ```
 
+**Note:** Using the `jar` command will lead to creating the JAR with a structure that reflects the hierarchy of files from the place where you ran the command. For example, if you run the command from above, the JAR will be produced with the following structure:
+```
+jar-sample.jar
+	src
+		Main.class
+	META-INF
+		MANIFEST.MF
+```
+This will lead to a `ClassNotFoundException` when trying to run the JAR with `java -jar jar-sample.jar`, since the path to the entry point is actually `src/Main` and not `Main` (note the fact that `Main.class` still is in the root package). The only ways of fixing this would be to properly run the command from the root package **OR** to manually reajust the structure of the JAR.
+
 ## Resources
 https://www.baeldung.com/java-create-jar
