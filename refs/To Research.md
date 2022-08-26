@@ -1,6 +1,6 @@
 # To Research
 - [x] [[JAR]]
-- [ ] [[Classpath]]
+- [x] [[Classpath]]
 - [ ] [[JVM]]
 - [ ] [[JDK]]
 - [ ] [[Docker]]
