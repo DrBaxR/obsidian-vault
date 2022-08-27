@@ -1,7 +1,4 @@
 # To Research
-- [x] [[JAR]]
-- [x] [[Classpath]]
-- [ ] [[JVM]]
 - [ ] [[JDK]]
 - [ ] [[Docker]]
 - [ ] [[Keycloak]]
@@ -9,4 +6,4 @@
 - [ ] [[HTML meta]]
 - [ ] [[JPA]]
 - [ ] [[File Transfer over HTTP]]
-
+- [ ] [[Multipart]]
