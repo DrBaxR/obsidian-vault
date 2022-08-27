@@ -1,6 +1,6 @@
 # To Research
-- [ ] [[JDK]]
 - [ ] [[Docker]]
+- [ ] [[JDK]]
 - [ ] [[Keycloak]]
 - [ ] [[Form Data Objects]]
 - [ ] [[HTML meta]]
