@@ -1,9 +1,9 @@
 Tags: #reference 
 Created: 2022-08-27 16:08
 
-# Main Docker Commands
+# Main [[Docker]] Commands
 ### Container vs Image
-A container is a **running environment** for an image. Is has its own things like a file system, application image and a port bound to it, so you can talk to the application that is running inside it.
+A container is a **running environment** for an [[Docker Image]]. Is has its own things like a file system, application image and a port bound to it, so you can talk to the application that is running inside it.
 
 This command is used to pull a Docker image locally (a Redis image)
 ```sh

@@ -8,7 +8,7 @@ The operating system is split into two layers that go on top of the *hardware of
 
 A VM brings its own kernel and applications layer, which means that when you boot up a virtual machine, that virtual machine *does not use your kernel*, it uses its own.
 
-Docker, on the other side, only brings its own applications layer, which means that when you run a docker container, that container uses *your kernel*.
+[[Docker]], on the other side, only brings its own applications layer, which means that when you run a docker container, that container uses *your kernel*.
 
 Differences:
 - containers are much smaller, since they don't implement the kernel layer
