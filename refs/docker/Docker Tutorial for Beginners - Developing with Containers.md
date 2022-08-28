@@ -54,7 +54,7 @@ docker run -d \
 	-e ME_CONFIG_MONGODB_ADMINPASSWORD=test \
 	--net mongo-network \
 	--name mongo-express \
-	-e ME_CONFIG_MONGODB_SERVER \
+	-e ME_CONFIG_MONGODB_SERVER=mongodb \
 	mongo-express
 ```
 
