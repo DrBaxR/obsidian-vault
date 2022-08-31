@@ -5,5 +5,6 @@
 - [ ] [[Form Data Objects]]
 - [ ] [[HTML meta]]
 - [ ] [[JPA]]
+- [ ] [[Building responses in JAX-RS]]
 - [ ] [[File Transfer over HTTP]]
 - [ ] [[Multipart]]
