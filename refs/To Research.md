@@ -1,5 +1,5 @@
 # To Research
-- [ ] [[Docker]]
+- [x] [[Docker]]
 - [ ] [[JDK]]
 - [ ] [[Keycloak]]
 - [ ] [[Form Data Objects]]
