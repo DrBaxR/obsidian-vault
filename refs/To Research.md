@@ -1,5 +1,4 @@
 # To Research
-
 - [ ] from [[Docker Tutorial for Beginners]]
 - [ ] [[JDK]]
 - [ ] [[Keycloak]]
