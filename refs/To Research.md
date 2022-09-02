@@ -1,5 +1,6 @@
 # To Research
 - [ ] from [[Docker Tutorial for Beginners]]
+- [ ] explaination of angular auth flow
 - [ ] [[JDK]]
 - [ ] [[Keycloak]]
 - [ ] [[Form Data Objects]]
