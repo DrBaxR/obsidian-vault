@@ -1,6 +1,4 @@
 # To Research
-- [ ] from [[Docker Tutorial for Beginners]]
-- [x] explaination of angular auth flow
 - [ ] [[JAX-RS Client]]
 - [ ] [[JDK]]
 - [ ] [[Keycloak]]
