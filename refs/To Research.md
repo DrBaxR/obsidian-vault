@@ -1,5 +1,5 @@
 # To Research
-- [ ] [[JAX-RS Client]]
+- [ ] **BB** DOES NOT WORK BECAUSE PDF IS MISSING `page`
 - [ ] [[JDK]]
 - [ ] [[Keycloak]]
 - [ ] [[Form Data Objects]]
