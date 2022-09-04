@@ -1,5 +1,6 @@
 # To Research
 - [ ] **BB** DOES NOT WORK BECAUSE PDF IS MISSING `page`
+- [ ] maybe a filter that adds the `Content-Type` header when sending request to BB
 - [ ] [[JDK]]
 - [ ] [[Keycloak]]
 - [ ] [[Form Data Objects]]
@@ -8,3 +9,4 @@
 - [ ] [[Building responses in JAX-RS]]
 - [ ] [[File Transfer over HTTP]]
 - [ ] [[Multipart]]
+- [ ] [[Content-Disposition]]
