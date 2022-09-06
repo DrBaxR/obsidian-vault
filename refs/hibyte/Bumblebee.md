@@ -1,4 +1,4 @@
-Tags: #reference 
+ Tags: #reference 
 Created: 2022-09-02 12:09
 
 # Bumblebee
@@ -41,20 +41,52 @@ In case the user want to transform the file, a new `submedia` sub-directory wher
 - `GET {base_URL}/api/media/thumbnail/allowedformats` - Used to receive allowed formats for thumbnails generation
 - `POST {base_URL}/api/medium/{medium_UUID}/submedia` - Main endpoint used for transforming files. Information about the kind of transformation is in the body. Location of transformed file is returned in *Location Header*.
 
-Example body:
+Example body (*PDF to image*):
 ```json
-{  
-	"transformer": "image",  
-	"transformerParameter": 
-	{  
-		"format": "jpg",  
-		"sizeY": 323  
-	}  
+{
+	"transformer": "image",
+	"transformerParameter": {
+		"format": "png",
+		"sizeX": 300,
+		"page": 1
+	}
 }
 ```
 
 - `GET {base_URL}/api/medium/{mediumUUID}/submedium/{submediumUUID}` - Used for retrieving information on a transgormed file (width, height, creation data, ...)
 - `GET {base_URL}/api/medium/{mediumUUID}/submedium/{submediumUUID}/download` - Download resulted file from Bumblebee
+
+## WebSocket
+The URL of the [[WebSocket]] is `wss://{origin}/ws/events`. Bumblebee sends events regarding the status of transforming a medium after a `POST` to the transformation endpoint after subscribing to that event type.
+
+The initial message (with which you subscribe to the submedium transformation) looks like this
+
+```json
+{
+	"messageType": "subscription",
+	"subscriptions": [{
+		"subMediumUid": subMediumUUID,
+		"channel": "submediumchanged"
+	}]
+}
+```
+
+When the submedium is done transforming a message like this is sent on the websocket
+
+```json
+{
+	"event": {
+		"channel": "submediumchanged",
+		"source": "162f8b34-3d29-43e3-9d2a-0cc6fa0d8157",
+		"subMedium": "3dd4de54-2122-458f-bc34-d8e5f8490c5a",
+		"state": "READY",
+		"percentageState": 100,
+		"warningMessage": [],
+		"errorMessage": ""
+	},
+	"messageType": "event"
+}
+```
 
 ## Resources
 Bumblebee Walkthrough
