@@ -21,6 +21,7 @@ Created: 2022-09-09 22:09
 16. [[Rustlings - Traits]]
 17. [[Rustlings - Tests]]
 18. [[Rustlings - Lifetimes]]
+19. [[Rustlings - Iterators]]
 
 ## Resources
 https://github.com/rust-lang/rustlings
