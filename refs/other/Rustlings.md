@@ -558,5 +558,280 @@ fn read_username_from_file() -> Result<String, io::Error> {
 }
 ```
 
+## Generics
+There are multiple places where you can use generics. Here they are:
+- Function definitions
+- Struct definitions
+- Enum definitions
+- Method definitions
+
+```rust
+struct Wrapper<T> {
+    value: T,
+}
+  
+impl<T> Wrapper<T> {
+    pub fn new(value: T) -> Self {
+        Wrapper { value }
+    }
+}
+```
+
+### Bounds
+It is possible to specify what functionality a generic implements by using **bounds**.
+
+```rust
+// Define a function `printer` that takes a generic type `T` which
+// must implement trait `Display`.
+fn printer<T: Display>(t: T) {
+    println!("{}", t);
+}
+```
+
+## Traits
+Traits in rust are pretty much like interfaces or abstract classes in *Java*. It defines functionality that a particular type can share to other types.
+
+```rust
+pub trait Summary {
+    fn summarize(&self) -> String;
+}
+
+pub struct NewsArticle {
+    pub headline: String,
+    pub location: String,
+    pub author: String,
+    pub content: String,
+}
+
+impl Summary for NewsArticle {
+    fn summarize(&self) -> String {
+        format!("{}, by {} ({})", self.headline, self.author, self.location)
+    }
+}
+```
+
+It is also possible to provide default implementations for certain trait methods.
+
+To pass a trait implementation as a function parameter, you can use the `impl` keyword in the type of the parameter. It is also possible to specify that the parameter implements multiple traits
+
+```rust
+// single
+pub fn notify<T: Summary>(item: &T) {
+    println!("Breaking news! {}", item.summarize());
+}
+
+// multiple
+pub fn notify(item: &(impl Summary + Display)) {
+```
+
+In order to make trait bounds more readable, the `where` clause exists. Here is some code written without using `where` and some code written using it.
+
+```rust
+// no where
+fn some_function<T: Display + Clone, U: Clone + Debug>(t: &T, u: &U) -> i32 {
+
+// where
+fn some_function<T, U>(t: &T, u: &U) -> i32
+    where T: Display + Clone,
+          U: Clone + Debug
+{
+```
+
+When you use generics it is possible to only implement some methods for the types that implement a certain trait. These methods will only be available when the generic type implements the said traits.
+
+```rust
+use std::fmt::Display;
+
+struct Pair<T> {
+    x: T,
+    y: T,
+}
+
+impl<T> Pair<T> {
+    fn new(x: T, y: T) -> Self {
+        Self { x, y }
+    }
+}
+
+impl<T: Display + PartialOrd> Pair<T> {
+    fn cmp_display(&self) {
+        if self.x >= self.y {
+            println!("The largest member is x = {}", self.x);
+        } else {
+            println!("The largest member is y = {}", self.y);
+        }
+    }
+}
+```
+
+It is also possible to implement traits for types that implement another trait. This mechanism is called *blanket implementations*. A good example would be what the standard library does with the `ToString` trait.
+
+```rust
+impl<T: Display> ToString for T {
+    // --snip--
+}
+```
+
+## Tests
+Tests are rust functions that are annotated with the `#[test]` attribute. In these functions you can make assertions using things like `assert_eq!`.
+
+```rust
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn exploration() {
+        assert_eq!(2 + 2, 4);
+    }
+}
+```
+
+In case the test should *panic*, then use the `#[should_panic]` attribute. If you don't want your tests to use assertions or to panic, you can make them return a `Result`.
+
+```rust
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn it_works() -> Result<(), String> {
+        if 2 + 2 == 4 {
+            Ok(())
+        } else {
+            Err(String::from("two plus two does not equal four"))
+        }
+    }
+}
+```
+
+## Lifetimes
+A **lifetime** is the scope is which a reference is valid. Most of the time lifetimes are impricit, just like most of the time types are implicit. Lifetimes are important for preventing *dangling references*, such as the case in the next code sequence.
+
+```rust
+fn main() {
+    let r;
+
+    {
+        let x = 5;
+        r = &x;
+    }
+
+    println!("r: {}", r);
+}
+```
+
+Rust's *borrow checker* is what makes sure that all borrows are valid.
+
+### Generic lifetimes in functions
+This code does not compile, beacause rust needs to know what the lifetime of the returned reference is, which means that we will need to specify it:
+
+```rust
+fn main() {
+    let string1 = String::from("abcd");
+    let string2 = "xyz";
+
+    let result = longest(string1.as_str(), string2);
+    println!("The longest string is {}", result);
+}
+
+fn longest(x: &str, y: &str) -> &str {
+    if x.len() > y.len() {
+        x
+    } else {
+        y
+    }
+}
+```
+
+The lifetime annotations of references don't modify the lifetime in any way, the only thing they do is *describe the relationships of lifetimes of multiple references*.
+
+```rust
+&i32        // a reference
+&'a i32     // a reference with an explicit lifetime
+&'a mut i32 // a mutable reference with an explicit lifetime
+```
+
+Here is how lifetimes can be used in the function that did not compile before
+
+```rust
+fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
+    if x.len() > y.len() {
+        x
+    } else {
+        y
+    }
+}
+```
+
+*Ultimately, lifetime syntax is about connecting the lifetimes of various parameters and return values of functions. Once they’re connected, Rust has enough information to allow memory-safe operations and disallow operations that would create dangling pointers or otherwise violate memory safety.*
+
+### Lifetimes in structs
+So far all the structs had held owned types. It is possible to define structs to hold references, the only requirement being that we annotate the lifetime.
+
+```rust
+struct ImportantExcerpt<'a> {
+    part: &'a str,
+}
+
+fn main() {
+    let novel = String::from("Call me Ishmael. Some years ago...");
+    let first_sentence = novel.split('.').next().expect("Could not find a '.'");
+    let i = ImportantExcerpt {
+        part: first_sentence,
+    };
+}
+```
+
+### Lifetime elision
+There are some cases where lifetime can be inferred in functions (*lifetime elision*). There is a set of rules that are deterministic, which is what lifetime elision is:
+1. Compiler assigns a lifetime parameter to each parameter that's a reference
+2. If there is exactly one input parameter, that lifetime is assigned to all output lifetime parameters
+3. If there are multiple input lifetime params by one of them is `&self` or `&mut self`, the lifetime of `self` is assigned to all output lifetime parameters
+
+### Lifetime annotation in method definitions
+For implementing methods on a struct with lifetimes, we use same syntax as that of generic type parameters.
+
+```rust
+struct ImportantExcerpt<'a> {
+    part: &'a str,
+}
+
+impl<'a> ImportantExcerpt<'a> {
+    fn level(&self) -> i32 {
+        3
+    }
+}
+```
+
+**Note:** Lifetime not annotated in implementation of `level` because of rule 1.
+
+### The static lifetime
+It is a special lifetime that denotes thatthe affected reference can live for the entire duration of the program. An example is for string literals:
+
+```rust
+let s: &'static str = "I have a static lifetime.";
+```
+
+Most of the times when compiler suggesting the `'static` lifetime results from attempting to create a dangling reference, in which cases the solution is fixing that, NOT specifying the `'static` lifetime.
+
+### Using generic types, trait bounds, and lifetimes together
+```rust
+use std::fmt::Display;
+
+fn longest_with_an_announcement<'a, T>(
+    x: &'a str,
+    y: &'a str,
+    ann: T,
+) -> &'a str
+where
+    T: Display,
+{
+    println!("Announcement! {}", ann);
+    if x.len() > y.len() {
+        x
+    } else {
+        y
+    }
+}
+```
+
+
 ## Resources
 https://github.com/rust-lang/rustlings
