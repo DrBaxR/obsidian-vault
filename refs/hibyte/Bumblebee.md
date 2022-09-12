@@ -88,5 +88,11 @@ When the submedium is done transforming a message like this is sent on the webso
 }
 ```
 
+## Note
+For Microsoft [[MIME]] types (only tested for ), the medium UUID changes from when you upload a file and when you transform it:
+- let's say you upload a `.doc` file, which will lead to you getting a `mediumUUID1` in the `Location` header
+- you then transform that file in an `.png`, which will lead to you getting another `mediumUUID2` and a `submediumUUID`
+- `mediumUUID1` and `mediumUUID`
+
 ## Resources
 Bumblebee Walkthrough
