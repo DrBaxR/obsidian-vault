@@ -22,6 +22,9 @@ Created: 2022-09-09 22:09
 17. [[Rustlings - Tests]]
 18. [[Rustlings - Lifetimes]]
 19. [[Rustlings - Iterators]]
+20. [[Rustlings - Box]]
+21. [[Rustlings - Shared-state concurrency]]
+22. [[Rustlings - Threads]]
 
 ## Resources
 https://github.com/rust-lang/rustlings
