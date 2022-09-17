@@ -1,7 +1,7 @@
 # To Research
-- [ ] [[Rustlings]]
+- [x] [[Rustlings]]
+- [x] [[Form Data]]
+- [x] [[HTML meta]]
 - [ ] [[JDK]]
 - [ ] [[Keycloak]]
-- [ ] [[Form Data Objects]]
-- [ ] [[HTML meta]]
 - [ ] [[JPA]]
