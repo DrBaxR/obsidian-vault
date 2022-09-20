@@ -53,7 +53,60 @@ class HeroService {}
 This makes the service be a [[Singleton]].
 
 ### Injecting a dependency
-TODO...
+The most common way to inject a service is by declaring it as a parameter of the constructor. 
+
+When Angular discovers that a component depends on  aservice, it first checks if the injector has any existing instances of that service. If it doesn't, the injector creates one using the registered provider, adds it to the injector and then it gives it to the component.
+
+## Creating an injectable service
+*An [[Angular Service]] is typically a class with a narrow, well defined purpose.*
+
+Angular distunguishes components from services to increase modularity. By separating a component's view-related features from other kind sof processing you can make you components lean and efficient.
+
+*Ideally, a component's job is to enable the user experience and nothing more.* Its methods should mediate between the **view** and the **application logic**.
+
+## Configuring dependency providers
+This describes how you can use **classes** as dependencies. Besides classes, other things can also be provided as dependencies, such as *booleans*, *strings*, *dates* and *objects*.
+
+You can make the provider use the same class as the one you specified or you can use another class. For example:
+
+```ts
+[{ provide: Logger, useClass: Logger }]
+```
+
+There are a few notable things here: 
+- The `provide` property holds the token that is used for locating the dependency and configuring the injector
+- The second property tells the injector *how* to create the dependency value. The provider definition can be one of the following:
+	- `useClass` - alias a token and reference an existing one
+	- `useFactory` - define a function that constructs the dependency
+	- `useValue` - static value that will be used as a dependency
+
+### Using an `InjectionToken` object
+These are used for non-class dependencies.
+
+```ts
+import { InjectionToken } from '@angular/core';
+
+export const APP_CONFIG = new InjectionToken<AppConfig>('app.config');
+```
+
+After doing this, you need to register the dependency provider in the component using the object of `APP_CONFIG`.
+
+```ts
+providers: [{ provide: APP_CONFIG, useValue: HERO_DI_CONFIG }]
+```
+
+After doing all this, you can inject them by using the `@Inject` deconrator in the constructor:
+
+```ts
+constructor(@Inject(APP_CONFIG) config: AppConfig) {
+  this.title = config.title;
+}
+```
+
+All this is required because it's not possible to use interfaces as providers, because of the way typescript compiles into javascript.
+
+## Hierarchical injectors
+todo...
 
 ## Resources
 https://angular.io/guide/dependency-injection-overview
