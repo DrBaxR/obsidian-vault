@@ -106,7 +106,36 @@ constructor(@Inject(APP_CONFIG) config: AppConfig) {
 All this is required because it's not possible to use interfaces as providers, because of the way typescript compiles into javascript.
 
 ## Hierarchical injectors
-todo...
+These things are used to *set* the desired visibility of your provider. Angular has two injector hierarchies:
+- `ModuleInjector` - you configure it in a hierarchy using `@NgModule` or `@Injectable`
+- `ElementInjector` - implicitly created at each [[DOM]] element
+
+### `ModuleInjector`
+It can be configured in two ways: the first one is using the `@Injectable` `providedIn` property to refer to a `@NgModule` or `root`; the other way is the `@NgModule` `providers` array.
+
+**Note:** The prefered way of configuration is the first one, since optimization tools can perform tree shaking.
+
+The whole DI mechanism's providers are given by a hierarchy of *injectors*. This hierarchy starts at a `NullInjector`, which always throws an error unless `@Optional` was used. The next one in the hierarchy is the `ModuleInjector`, which contains platform specific things like `DomSanitizer`. The final pre-determined injector is the `root`, which is configured by your `AppModule`.
+
+All dependency requests fowward up to the `root` injector (in the injector hierarchy).
+
+### `ElementInjector`
+This injector is created implicitly for each DOM element and you can provide services using it by specifying it in the `@Component` decorator using its `providers` property.
+
+The element injectors also form a tree, which means that child components will also see dependencies provided in the element injector of their parents.
+
+Note: A component is a special kind of [[Directive]], which means that they both have a `providers` property. Components and directives on the same element share an injector.
+
+## Resolution rules
+When a component declares a dependency, Angular first checks the `ElementInjector` hierarchy starting at the injector of the place where the dependency was requested and going up.
+
+If no provider is found in the `ElementInjector` tree, then Angular starts looking in the `ModuleInjector` tree. Not finding a dependency in the module tree either results in an error being thrown.
+
+## Resolution modifiers
+Angular's resolution behaviour can be modified with `@Optional`, `@Self`, `@SkipSelf`and `@Host`.
+
+## Examples
+Some great examples that illustrate how the whole mechanism works start at [here](https://angular.io/guide/hierarchical-dependency-injection#logical-structure-of-the-template).
 
 ## Resources
 https://angular.io/guide/dependency-injection-overview
