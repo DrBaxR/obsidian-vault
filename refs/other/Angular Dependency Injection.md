@@ -134,6 +134,10 @@ If no provider is found in the `ElementInjector` tree, then Angular starts looki
 ## Resolution modifiers
 Angular's resolution behaviour can be modified with `@Optional`, `@Self`, `@SkipSelf`and `@Host`.
 
+There is a difference between the component decorator `providers` and `viewProviders`. The providers are applied in the component while view providers are applied in the component's *view*. For more details check the *logical structure of the template* section in the article.
+
+A great example where this difference is illustrated is when you apply `@Host` and `@SkipSelf` to the same injected dependency.
+
 ## Examples
 Some great examples that illustrate how the whole mechanism works start at [here](https://angular.io/guide/hierarchical-dependency-injection#logical-structure-of-the-template).
 
