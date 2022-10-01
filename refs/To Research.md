@@ -3,6 +3,7 @@
 - [ ] Read [this](https://angular.io/guide/dependency-injection-in-action) more practical reference to DI
 - [ ] [[Web Workers]]
 - [x] Example app in the [[Angular Dependency Injection]] article (at the end)
+- [ ] Crafting interpreters
 - [ ] [[Keycloak]]
 - [ ] [[JPA]]
 - [ ] [[JDK]]
