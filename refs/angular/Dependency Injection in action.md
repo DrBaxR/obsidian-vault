@@ -213,7 +213,27 @@ export function runnersUpFactory(take: number) {
 ```
 
 ## Class interface
-TODO...
+This concept will be illustrated using the same example as the one from the `useExisting` property.
+
+An abstract class is usually a base class that you can extend, however in this example, it is only used as a dependency injection token. Using a class this way makes it a *class interface*.
+
+This thing is useful because interfaces can't be used as DI tokens.
+
+## `InjectionToken` objects
+Dependency objects can be simple values like dates, numbers and strings or even shapeless objects like arrays and functions.
+
+This is where injection tokens come into play, since these things don't have application interfaces and aren't well represented by a class. Here's an example of an injection token:
+
+```ts
+{ provide: TITLE,         useValue:   'Hero of the Month' },
+{ provide: RUNNERS_UP,    useFactory:  runnersUpFactory(2), deps: [Hero, HeroService] }
+```
+
+```ts
+import { InjectionToken } from '@angular/core';
+
+export const TITLE = new InjectionToken<string>('title');
+```
 
 ## Resources
 https://angular.io/guide/dependency-injection-in-action
