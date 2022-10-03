@@ -134,7 +134,7 @@ export class PermissionGuard implements CanActivate {
 ```
 
 ### Auth Service
-Here are the relevant parts of the `AuthService`. *Note* that the `initUser` method always gets called in the application so there is always data in the `userPermissions$` observable:
+Here are the relevant parts of the `AuthService`. *Note* that the `initUser` method always gets called in the application by some component so there is always data in the `userPermissions$` observable:
 
 ```ts
 @Injectable({
@@ -177,3 +177,5 @@ export class AuthService {
   }
 }
 ```
+
+### Role Service

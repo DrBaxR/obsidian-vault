@@ -8,10 +8,10 @@ Contexts are basically inputs for ng-templates ([[Template]]s). You can create a
 Example:
 ```html
 <ng-container *ngTemplateOutlet="all; context: contextAll"></ng-container>
-	<ng-template #all
-				 let-name
-				 let-surname="contextSurname">
-		<div>Implicit: {{ name }} Explicit: {{ surname }}</div>
+<ng-template #all
+			 let-name
+			 let-surname="contextSurname">
+	<div>Implicit: {{ name }} Explicit: {{ surname }}</div>
 </ng-template>
 ```
 
