@@ -85,6 +85,28 @@ Also for UEFI installations, you need to do this:
 ```sh
 mkdir /boot/EFI
 mount /dev/sda1 /boot/EFI
+grub-install --target=x86_64-efi --bootloder-id=grub_uefi --recheck
+mkdir /boot/grub/locale # in case it does not already exist
+cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
+grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-TODO: non-UEFI install
+At this point, you should be able to reboot your system and log in with the user you created (if everything went well).
+
+## Post-install tweaks
+Set the timezone by using `timedatectl list-timezones` to list all the available timezones and actually set it with `timedatectl set-timezone Europe/Bucharest`.
+
+In order to actually change you need to enable this service: `systemctl enable systemd-timesyncd`.
+
+May also be useful to create a swap file (not partition, since it's more flexible).
+
+Also possible to change the hostname (from the default *archlinux* that you see in the terminal prompt). This will also change the name of your host in the network. You can do this with `hostnamectl set-hostname name` and you can also edit the `/etc/hosts` file (not sure what that does tho).
+
+Install [[Microcode]] of your CPU with `pacman -S amd-ucode` (if your CPU is AMD).
+
+If you want anything graphical, you also need to install `pacman -S xorg-server` (check wayland later). And a graphics driver with `pacman -S nvidia-lts` (dependes on what GPU you have).
+
+## Add a desktop environment
+For example if you want to add GNOME, you can run `pacman -S gnome`. You can also optionally install `pacman -S gnome-tweaks` for a better experience.
+
+You also need to enable a display manager. For GNOME `systemctl enable gdm`.
