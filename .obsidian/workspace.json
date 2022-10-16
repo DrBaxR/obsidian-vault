@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "b5dcba5501667081",
+        "id": "15ed299fa69ceec1",
         "type": "tabs",
         "children": [
           {
-            "id": "c5d6d82c37ed63c2",
+            "id": "60ee55ca892c399f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "main/Arch Install.md",
+                "file": "refs/spring/Spring IoC.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "main/Arch Install.md",
+                "file": "refs/spring/Spring IoC.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "main/Arch Install.md",
+                "file": "refs/spring/Spring IoC.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "main/Arch Install.md"
+                "file": "refs/spring/Spring IoC.md"
               }
             }
           }
@@ -141,8 +141,10 @@
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "41864191cce69c1c",
+  "active": "60ee55ca892c399f",
   "lastOpenFiles": [
+    "main/Arch Install.md",
+    "refs/spring/Spring IoC.md",
     "main/Create Keycloak User Account via the REST API.md",
     "main/ThreeJS.md",
     "refs/To Research.md",
@@ -150,8 +152,6 @@
     "refs/other/The Reference Counted Smart Pointer.md",
     "refs/other/Intro to Reactive Programming.md",
     "main/Rust Closures.md",
-    "main/Helidon REST Client.md",
-    "refs/angular/Angular Dependency Injection.md",
-    "Dependency Injection.md"
+    "main/Helidon REST Client.md"
   ]
 }
