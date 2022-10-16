@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "refs/spring/Spring IoC.md",
+                "file": "refs/To Research.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "refs/spring/Spring IoC.md",
+                "file": "refs/To Research.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "refs/spring/Spring IoC.md",
+                "file": "refs/To Research.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "refs/spring/Spring IoC.md"
+                "file": "refs/To Research.md"
               }
             }
           }
@@ -143,8 +143,8 @@
   },
   "active": "60ee55ca892c399f",
   "lastOpenFiles": [
-    "refs/To Research.md",
     "refs/spring/Spring IoC.md",
+    "refs/To Research.md",
     "main/Arch Install.md",
     "main/Create Keycloak User Account via the REST API.md",
     "main/ThreeJS.md",
