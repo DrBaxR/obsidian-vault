@@ -1,19 +1,19 @@
 {
   "main": {
-    "id": "43265eeaad383bb8",
+    "id": "b0cb11d2e2f4f8fa",
     "type": "split",
     "children": [
       {
-        "id": "fe0e65be3600b29d",
+        "id": "15ed299fa69ceec1",
         "type": "tabs",
         "children": [
           {
-            "id": "edb42d3821de1614",
+            "id": "60ee55ca892c399f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "main/ESLint & Prettier.md",
+                "file": "refs/To Research.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,15 +25,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "ce342af09c2412f4",
+    "id": "f58f7b27f0361fe9",
     "type": "split",
     "children": [
       {
-        "id": "3f35f7f37155c3bc",
+        "id": "f98ea1263712ee4a",
         "type": "tabs",
         "children": [
           {
-            "id": "a6a059fce92a4d36",
+            "id": "41864191cce69c1c",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -43,7 +43,7 @@
             }
           },
           {
-            "id": "b135e1cc88a6e07f",
+            "id": "95b6c40d4c484c33",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -58,7 +58,7 @@
             }
           },
           {
-            "id": "5266c3dae880b82e",
+            "id": "02ac76e3680c608a",
             "type": "leaf",
             "state": {
               "type": "starred",
@@ -73,20 +73,20 @@
     "collapsed": true
   },
   "right": {
-    "id": "ec57f4993d4203e3",
+    "id": "6cc4e74f15cd38dc",
     "type": "split",
     "children": [
       {
-        "id": "7fe81d57f8878f99",
+        "id": "ac348b64bf0ea5d9",
         "type": "tabs",
         "children": [
           {
-            "id": "c6626a48eaeeaf33",
+            "id": "1478038b9acc0ccb",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "main/ESLint & Prettier.md",
+                "file": "refs/To Research.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -98,19 +98,19 @@
             }
           },
           {
-            "id": "352a0652d90f26ee",
+            "id": "e649476555795db0",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "main/ESLint & Prettier.md",
-                "linksCollapsed": false,
+                "file": "refs/To Research.md",
+                "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "6164ee981e292449",
+            "id": "6c7e9e1e48c9e041",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -121,16 +121,17 @@
             }
           },
           {
-            "id": "fc4e419dca353c71",
+            "id": "ee088daac63cca4d",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "main/ESLint & Prettier.md"
+                "file": "refs/To Research.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -140,17 +141,17 @@
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "edb42d3821de1614",
+  "active": "60ee55ca892c399f",
   "lastOpenFiles": [
-    "main/Create Keycloak User Account via the REST API.md",
-    "main/Structural Directive.md",
-    "main/Template Context.md",
-    "main/Attribute Directive.md",
-    "main/Angular Role Based UI.md",
-    "main/Back End.md",
-    "main/Front End.md",
-    "main/CSS.md",
+    "refs/spring/Spring IoC.md",
     "refs/To Research.md",
-    "Angular Role Based UI.md"
+    "main/Arch Install.md",
+    "main/Create Keycloak User Account via the REST API.md",
+    "main/ThreeJS.md",
+    "refs/angular/Dependency Injection in action.md",
+    "refs/other/The Reference Counted Smart Pointer.md",
+    "refs/other/Intro to Reactive Programming.md",
+    "main/Rust Closures.md",
+    "main/Helidon REST Client.md"
   ]
 }

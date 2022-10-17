@@ -5,6 +5,9 @@
 - [ ] [[Keycloak]]
 - [ ] [[JPA]]
 - [ ] [[JDK]]
+- [ ] [[Linux LVM]]
+- [ ] [[Display Manager]]
+- [x] [[Spring IoC]]
 - [x] Read [this](https://angular.io/guide/dependency-injection-in-action) more practical reference to DI
 - [x] Check out some of [these](https://angular.io/guide/example-apps-list) projects
 - [x] Example app in the [[Angular Dependency Injection]] article (at the end)
