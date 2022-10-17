@@ -1,0 +1,156 @@
+{
+  "main": {
+    "id": "43265eeaad383bb8",
+    "type": "split",
+    "children": [
+      {
+        "id": "fe0e65be3600b29d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "edb42d3821de1614",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "main/ESLint & Prettier.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "ce342af09c2412f4",
+    "type": "split",
+    "children": [
+      {
+        "id": "3f35f7f37155c3bc",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a6a059fce92a4d36",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "b135e1cc88a6e07f",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "5266c3dae880b82e",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "ec57f4993d4203e3",
+    "type": "split",
+    "children": [
+      {
+        "id": "7fe81d57f8878f99",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c6626a48eaeeaf33",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "main/ESLint & Prettier.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "352a0652d90f26ee",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "main/ESLint & Prettier.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "6164ee981e292449",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "fc4e419dca353c71",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "main/ESLint & Prettier.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "ribbon": {
+    "mostRecentAction": ""
+  },
+  "active": "edb42d3821de1614",
+  "lastOpenFiles": [
+    "main/Create Keycloak User Account via the REST API.md",
+    "main/Structural Directive.md",
+    "main/Template Context.md",
+    "main/Attribute Directive.md",
+    "main/Angular Role Based UI.md",
+    "main/Back End.md",
+    "main/Front End.md",
+    "main/CSS.md",
+    "refs/To Research.md",
+    "Angular Role Based UI.md"
+  ]
+}
