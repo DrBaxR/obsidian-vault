@@ -16,6 +16,7 @@ API_URL # the API URL, including '/api'
 KEYCLOAK_CLIENT_ID # name of the keycloak client
 KEYCLOAK_REALM_NAME # name of the keycloak realm
 KEYCLOAK_URL # keycloak URL
+COPYRIGHT_HOLDER # footer copyright
 ```
 
 `KEYCLOAK_REALM_NAME` should be set to the value `hibyte-client`, for simplicity.
