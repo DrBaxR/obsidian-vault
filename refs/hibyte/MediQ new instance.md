@@ -265,3 +265,14 @@ bearer-only: true
 
 Method: `GET`
 URL: `{instance_URL}/api/import`
+
+### Data import request failure
+In case the import request fails, you need to do some changes to the Space One data model of the instance from where you want to import data:
+- change `generalRisc.id` to `generalRisc.cod`
+- change `objective.id` to `objective.cod`
+- change `activity.id` to `objective.cod`
+- make sure all the item links are ID for  `indicator`
+- change `department.id` to `department.cod`
+- make sure all the item links are ID for `generalRisk`
+- change `generalRisk.cod` to `generalRisk.nr`
+- make sure all the item links are ID for `clinicalRisk`
