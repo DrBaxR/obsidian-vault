@@ -16,7 +16,11 @@ interface EmployeeRepository extends JpaRepository<Employee, Long> {
 }
 ```
 
+## Annotations
 In order to create mappers for certain paths and [[HTTP]] methods, you can use some of these annotations:
+- `@Controller` - annotate the class that contains mappers (keep in mind that this you need another annotation together with this for REST)
+- `@RestController` - this is the recommended annotation
+- `@RestMapping(path="/demo")` - this annotation is applied to the controller class and path will be used to specify to which path the class corresponds
 - `@GetMapping`, `@PostMapping`, `@DeleteMapping`, `@PutMapping` - these are used to map a method to a method to a path
 - `@PathVariable` - you map a method parameter to a path variable
 - `@RequestBody` - map method parameter to the requrst body

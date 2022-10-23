@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "main/Spring REST Basics.md",
+                "file": "refs/To Research.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "main/Spring REST Basics.md",
+                "file": "refs/To Research.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "main/Spring REST Basics.md",
+                "file": "refs/To Research.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "main/Spring REST Basics.md"
+                "file": "refs/To Research.md"
               }
             }
           }
@@ -143,14 +143,14 @@
   "active": "c0101c3c2007475c",
   "lastOpenFiles": [
     "main/Spring REST Basics.md",
-    "refs/other/Rustlings/chapters/Rustlings - Shared-state concurrency.md",
+    "main/Spring JPA MySQL.md",
+    "Dependency Injection.md",
     "refs/To Research.md",
-    "refs/spring/Spring IoC.md",
     "main/Arch Install.md",
+    "refs/other/Rustlings/chapters/Rustlings - Shared-state concurrency.md",
+    "refs/spring/Spring IoC.md",
     "main/Create Keycloak User Account via the REST API.md",
     "main/ThreeJS.md",
-    "refs/angular/Dependency Injection in action.md",
-    "refs/other/The Reference Counted Smart Pointer.md",
-    "refs/other/Intro to Reactive Programming.md"
+    "refs/angular/Dependency Injection in action.md"
   ]
 }
