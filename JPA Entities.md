@@ -67,3 +67,39 @@ This annotation is applied to the types that can be **mapped dirrectly to the da
 This annotation is applied automatically and has its default values. It can be used to modify the default values:
 - `optional = ...` - whether the field allows *null*
 - `fetch = FetchType. ...` - how field should be fetched (eagerly or lazily)
+
+## Embeddable entities
+You can have entities be embedded into another entity. To do this, you need to annotate the entity that you want to embed with `@Embeddable` the field where it will get embedded with `@Embedded`.
+
+```java
+@Entity
+public class Company {
+    @Id
+    @GeneratedValue
+    private Integer id;
+    private String name;
+    private String address;
+    private String phone;
+    @Embedded
+    private ContactPerson contactPerson;
+}
+```
+
+You can also rename the columns that are going to be used for storing the embedded entity by usign the `@AttributeOverrides` and `@AttributeOverride`.
+
+```java
+@Embedded
+@AttributeOverrides({
+  @AttributeOverride( name = "firstName", column = @Column(name = "contact_first_name")),
+  @AttributeOverride( name = "lastName", column = @Column(name = "contact_last_name")),
+  @AttributeOverride( name = "phone", column = @Column(name = "contact_phone"))
+})
+private ContactPerson contactPerson;
+```
+
+This can be useful for dealing with duplicate column names.
+
+## Attribute converters
+If you want to make a class persistable in a single database column, you need to use a **converter**. To do this, you can use the annotation `@Convert(converter = Converter.class)`, where `Converter` is a class that implements the `AttributeConverter<T, U>`.
+
+`AttributeConverter` takes two generics, the first one being the class that it converts and the second being the type that it converts to. It contains two methods that need to be overriden: `convertToDatabaseColumn(T t)` and `convertToEntityAttribute(U u)`.
