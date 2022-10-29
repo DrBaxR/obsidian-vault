@@ -49,8 +49,10 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 
 If you want to know more about the `hibernate.ddl-auto` property, you can read about it in the [[Hibernate]] [documentatiton](https://docs.jboss.org/hibernate/orm/5.4/userguide/html_single/Hibernate_User_Guide.html#configurations-hbmddl).
 
-After you are done with the config, you need to create the `@Entity` model, which tells hibernate hwo to create the tables.
+After you are done with the config, you need to create the `@Entity` model, which tells hibernate how to create the tables.
 
 Other annotations that you might use are `@Id` for the id field of the entity and `@GeneratedValue(strategy = GenerationType.AUTO)`.
+
+Also, for creating nested entities, for example you have and `Exercise` that has `ExerciseSet`s, you can use relationship annotations, such as `@OneToMany` and of you want to also create the nested entities when the parent entity gets created, you can use the `cascade = CascadeType.ALL` property of the annotation.
 
 Next up, you need to create a repository for that entity, you can do this by creating an interface that extends `CrudRepository<T, ID>`, where T is the entity's type and ID is the type of the id of the entity.
