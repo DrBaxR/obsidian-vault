@@ -72,3 +72,29 @@ public UserDetailsService userDetailsService() {
     return new InMemoryUserDetailsManager(root);  
 }
 ```
+
+**Note** that this will not be enough to make the user you set be usable in the authentication.
+
+## Password encoder
+The passwords that you save manually need to be encoded (the ones that you set in `InMemoryUserDetailsManager`). Spring does this with the help of a `PasswordEncoder`.
+
+A password encoder needs to be provided to spring. There are multiple implementations, but the most popular one is `BCryptPasswordManager`. To provide the password encoder you need a config class that hass a method that returns it.
+
+```java
+@Configuration  
+public class PasswordConfig {  
+  
+    @Bean  
+    public PasswordEncoder passwordEncoder() {  
+        return new BCryptPasswordEncoder(10);  // takes in the strength of the encoder
+    }  
+}
+```
+
+After providing it, you need to inject wherever you manually set a password and use it like this (context is the same as the example above):
+
+```java
+// ...
+.password(passwordEncoder.encode("password"))
+// ...
+```
