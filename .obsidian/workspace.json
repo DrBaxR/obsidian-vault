@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JPA Entities.md",
+                "file": "main/Spring Security.md",
                 "mode": "source",
                 "source": false
               }
@@ -87,7 +87,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JPA Entities.md",
+                "file": "main/Spring Security.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JPA Entities.md",
+                "file": "main/Spring Security.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JPA Entities.md"
+                "file": "main/Spring Security.md"
               }
             }
           }
@@ -141,6 +141,7 @@
   },
   "active": "3e98496113498bfe",
   "lastOpenFiles": [
+    "main/JPA Entities.md",
     "main/Spring JPA MySQL.md",
     "main/Spring REST Basics.md",
     "refs/To Research.md",
@@ -149,7 +150,6 @@
     "refs/other/Rustlings/chapters/Rustlings - Shared-state concurrency.md",
     "refs/spring/Spring IoC.md",
     "main/Create Keycloak User Account via the REST API.md",
-    "main/ThreeJS.md",
-    "refs/angular/Dependency Injection in action.md"
+    "main/ThreeJS.md"
   ]
 }
