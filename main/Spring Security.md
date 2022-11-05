@@ -98,3 +98,122 @@ After providing it, you need to inject wherever you manually set a password and 
 .password(passwordEncoder.encode("password"))
 // ...
 ```
+
+## Roles
+Permissions and roles can be modelled via enums. Here is an example:
+
+*permissions*
+```java
+public enum ApplicationUserPermission {  
+  
+    EXERCISE_READ("exercise:read"),  
+    EXERCISE_WRITE("exercise:write"),  
+    EXERCISE_SET_READ("exercise-set:read"),  
+    EXERCISE_SET_WRITE("exercise-set:write"),  
+    MEASUREMENT_READ("measurement:read"),  
+    MEASUREMENT_WRITE("measurement:write"),  
+    WORKOUT_READ("workout:read"),  
+    WORKOUT_WRITE("workout:write"),  
+    USER_READ("user:read"),  
+    USER_WRITE("user:write");  
+  
+    private final String permission;  
+  
+    ApplicationUserPermission(String permission) {  
+        this.permission = permission;  
+    }  
+}
+```
+
+*roles*
+```java
+public enum ApplicationUserRole {  
+    ADMIN(new HashSet<>(  
+        Arrays.asList(USER_READ, USER_WRITE, EXERCISE_WRITE, EXERCISE_READ, EXERCISE_SET_READ, EXERCISE_SET_WRITE, MEASUREMENT_READ, MEASUREMENT_WRITE, WORKOUT_READ, WORKOUT_WRITE))  
+    ),  
+    DEFAULT(new HashSet<>(  
+        Arrays.asList(EXERCISE_WRITE, EXERCISE_READ, EXERCISE_SET_READ, EXERCISE_SET_WRITE, MEASUREMENT_READ, MEASUREMENT_WRITE, WORKOUT_READ, WORKOUT_WRITE))  
+    );  
+  
+    private final Set<ApplicationUserPermission> permissions;  
+  
+    ApplicationUserRole(Set<ApplicationUserPermission> permissions) {  
+        this.permissions = permissions;  
+    }  
+}
+```
+
+After you describes the roles and their permissions, you can use the role enums instead of hardcoded strings when specifying users:
+
+```java
+@Bean  
+public UserDetailsService userDetailsService() {  
+    UserDetails root = User.builder()  
+            .username("root")  
+            .password("password")  
+            .roles(ADMIN.name())  
+            .build();  
+  
+    return new InMemoryUserDetailsManager(root);  
+}
+```
+
+For role based auth, you can change the `SecurityFilterChain` to specify a path and say what role can access it.
+
+```java
+@Bean  
+public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {  
+    http  
+            .authorizeHttpRequests()  
+            .antMatchers("/index.html").permitAll()
+            .antMatchers("/api/**").hasRole(DEFAULT.name())
+            .anyRequest()  
+            .authenticated()  
+            .and()  
+            .httpBasic();  
+  
+    return http.build();  
+}
+```
+
+## Authorities
+This is how Spring calls permissions. In order to secure some endpoints via permissions, you need to specify the ant matchers of those endpoints and say what authorities can access those. Besides that, you also need to specify the authorities a user has when creating it.
+
+*antMatchers*
+```java
+http  
+        .csrf().disable()  
+        .authorizeHttpRequests()  
+        .antMatchers(HttpMethod.GET, "/user/**").hasAuthority(USER_READ.getPermission())  
+        .antMatchers(HttpMethod.POST, "/user/**").hasAuthority(USER_WRITE.getPermission())  
+        .antMatchers(HttpMethod.PUT, "/user/**").hasAuthority(USER_WRITE.getPermission())  
+        .antMatchers(HttpMethod.DELETE, "/user/**").hasAuthority(USER_WRITE.getPermission())  
+        .anyRequest()  
+        .authenticated()  
+        .and()  
+        .httpBasic();
+```
+
+*user creation*
+```java
+UserDetails root = User.builder()  
+        .username("root")  
+        .password(passwordEncoder.encode("password"))  
+        .authorities(ADMIN.getGrantedAuthorities())  
+        .build();
+```
+
+*getGrantedAuthorities*
+```java
+public Set<SimpleGrantedAuthority> getGrantedAuthorities() {  
+    Set<SimpleGrantedAuthority> permissions = this.getPermissions().stream()  
+            .map(permission -> new SimpleGrantedAuthority(permission.getPermission()))  
+            .collect(Collectors.toSet());  
+  
+    permissions.add(new SimpleGrantedAuthority("ROLE_" + this.name()));  
+  
+    return permissions;  
+}
+```
+
+**Note:** `getPermission()` simply returns the string representation of the permission.
