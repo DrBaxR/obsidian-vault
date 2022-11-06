@@ -217,3 +217,10 @@ public Set<SimpleGrantedAuthority> getGrantedAuthorities() {
 ```
 
 **Note:** `getPermission()` simply returns the string representation of the permission.
+
+### Annotations
+The same result can be achieved with annotaitons. All the setup remains the same, except the ant matchers in the config class, you can remove those and annotate that class with `@EnableGlobalMethodSecurity(prePostEnabled = true)`.
+
+After that, you can annotate all the request mappings that you want to secure with the annotation `@PreAuthorize("hasAuthority('user:write')")`, where the thing that you pass as a parameter to the `hasAuthority` method is the permission that the user must have.
+
+**Note:** Other methods can be used as well.

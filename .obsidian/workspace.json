@@ -139,8 +139,10 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "41864191cce69c1c",
+  "active": "3e98496113498bfe",
   "lastOpenFiles": [
+    "main/Neovim.md",
+    "main/Spring Security.md",
     "main/JPA Entities.md",
     "main/Spring JPA MySQL.md",
     "main/Spring REST Basics.md",
@@ -148,8 +150,6 @@
     "Dependency Injection.md",
     "main/Arch Install.md",
     "refs/other/Rustlings/chapters/Rustlings - Shared-state concurrency.md",
-    "refs/spring/Spring IoC.md",
-    "main/Create Keycloak User Account via the REST API.md",
-    "main/ThreeJS.md"
+    "refs/spring/Spring IoC.md"
   ]
 }
