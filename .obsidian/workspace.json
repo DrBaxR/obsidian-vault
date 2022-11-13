@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "main/Spring Security.md",
+                "file": "main/Spring Servlet Authentication Architecture.md",
                 "mode": "source",
                 "source": false
               }
@@ -70,8 +70,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "6cc4e74f15cd38dc",
@@ -87,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "main/Spring Security.md",
+                "file": "main/Spring Servlet Authentication Architecture.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "main/Spring Security.md",
+                "file": "main/Spring Servlet Authentication Architecture.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "main/Spring Security.md"
+                "file": "main/Spring Servlet Authentication Architecture.md"
               }
             }
           }
@@ -139,17 +138,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "3e98496113498bfe",
+  "active": "41864191cce69c1c",
   "lastOpenFiles": [
-    "main/Neovim.md",
+    "main/Spring Security Architecture.md",
+    "main/WWW-Authenticate.md",
     "main/Spring Security.md",
+    "main/xinit.md",
+    "main/Neovim.md",
     "main/JPA Entities.md",
     "main/Spring JPA MySQL.md",
     "main/Spring REST Basics.md",
     "refs/To Research.md",
-    "Dependency Injection.md",
-    "main/Arch Install.md",
-    "refs/other/Rustlings/chapters/Rustlings - Shared-state concurrency.md",
-    "refs/spring/Spring IoC.md"
+    "Dependency Injection.md"
   ]
 }
