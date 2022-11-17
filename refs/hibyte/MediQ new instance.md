@@ -29,6 +29,7 @@ The backend container has much more configurable options. This document will onl
 ```sh
 KEYCLOAK_MP_REST_URI # keycloak URL, which ends with '/auth/admin/realms'
 APP_KEYCLOAK_REALM # the realm where accounts get imported
+APP_BASE_URL # the base URL where backend is accessed (used by CaPeSaRo sync microservice)
 MP_JWT_VERIFY_ISSUER # the URL of the public key issuer, ending in the realm name
 JAVAX_SQL_DATASOURCE_MEDIQDATASOURCE_DATASOURCE_URL # jdbc URL of databse
 JAVAX_SQL_DATASOURCE_MEDIQDATASOURCE_DATASOURCE_USER # postgres user

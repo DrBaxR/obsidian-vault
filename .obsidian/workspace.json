@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "main/Spring Servlet Authentication Architecture.md",
+                "file": "refs/hibyte/MediQ new instance.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "main/Spring Servlet Authentication Architecture.md",
+                "file": "refs/hibyte/MediQ new instance.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "main/Spring Servlet Authentication Architecture.md",
+                "file": "refs/hibyte/MediQ new instance.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "main/Spring Servlet Authentication Architecture.md"
+                "file": "refs/hibyte/MediQ new instance.md"
               }
             }
           }
@@ -138,8 +138,9 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "41864191cce69c1c",
+  "active": "3e98496113498bfe",
   "lastOpenFiles": [
+    "main/Spring Servlet Authentication Architecture.md",
     "main/Spring Security Architecture.md",
     "main/WWW-Authenticate.md",
     "main/Spring Security.md",
@@ -148,7 +149,6 @@
     "main/JPA Entities.md",
     "main/Spring JPA MySQL.md",
     "main/Spring REST Basics.md",
-    "refs/To Research.md",
-    "Dependency Injection.md"
+    "refs/To Research.md"
   ]
 }
