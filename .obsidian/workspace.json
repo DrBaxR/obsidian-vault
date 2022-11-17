@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "refs/hibyte/MediQ new instance.md",
+                "file": "MQTT Essentials.md",
                 "mode": "source",
                 "source": false
               }
@@ -70,7 +70,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "6cc4e74f15cd38dc",
@@ -86,7 +87,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "refs/hibyte/MediQ new instance.md",
+                "file": "MQTT Essentials.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +104,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "refs/hibyte/MediQ new instance.md",
+                "file": "MQTT Essentials.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "refs/hibyte/MediQ new instance.md"
+                "file": "MQTT Essentials.md"
               }
             }
           }
@@ -140,6 +141,7 @@
   },
   "active": "3e98496113498bfe",
   "lastOpenFiles": [
+    "refs/hibyte/MediQ new instance.md",
     "main/Spring Servlet Authentication Architecture.md",
     "main/Spring Security Architecture.md",
     "main/WWW-Authenticate.md",
@@ -148,7 +150,6 @@
     "main/Neovim.md",
     "main/JPA Entities.md",
     "main/Spring JPA MySQL.md",
-    "main/Spring REST Basics.md",
-    "refs/To Research.md"
+    "main/Spring REST Basics.md"
   ]
 }
