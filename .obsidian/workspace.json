@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "MQTT Essentials.md",
+                "file": "Docker Networking.md",
                 "mode": "source",
                 "source": false
               }
@@ -87,7 +87,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "MQTT Essentials.md",
+                "file": "Docker Networking.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "MQTT Essentials.md",
+                "file": "Docker Networking.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "MQTT Essentials.md"
+                "file": "Docker Networking.md"
               }
             }
           }
@@ -141,6 +141,7 @@
   },
   "active": "3e98496113498bfe",
   "lastOpenFiles": [
+    "MQTT Essentials.md",
     "refs/hibyte/MediQ new instance.md",
     "main/Spring Servlet Authentication Architecture.md",
     "main/Spring Security Architecture.md",
@@ -149,7 +150,6 @@
     "main/xinit.md",
     "main/Neovim.md",
     "main/JPA Entities.md",
-    "main/Spring JPA MySQL.md",
-    "main/Spring REST Basics.md"
+    "main/Spring JPA MySQL.md"
   ]
 }
