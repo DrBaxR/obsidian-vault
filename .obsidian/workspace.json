@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Docker Networking.md",
+                "file": "Bevy Queries.md",
                 "mode": "source",
                 "source": false
               }
@@ -87,7 +87,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Docker Networking.md",
+                "file": "Bevy Queries.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Docker Networking.md",
+                "file": "Bevy Queries.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Docker Networking.md"
+                "file": "Bevy Queries.md"
               }
             }
           }
@@ -141,15 +141,15 @@
   },
   "active": "3e98496113498bfe",
   "lastOpenFiles": [
+    "Bevy Systems.md",
+    "Bevy Resources.md",
+    "Bevy Entities and Components.md",
+    "ECS.md",
     "MQTT Essentials.md",
     "refs/hibyte/MediQ new instance.md",
     "main/Spring Servlet Authentication Architecture.md",
     "main/Spring Security Architecture.md",
     "main/WWW-Authenticate.md",
-    "main/Spring Security.md",
-    "main/xinit.md",
-    "main/Neovim.md",
-    "main/JPA Entities.md",
-    "main/Spring JPA MySQL.md"
+    "main/Spring Security.md"
   ]
 }
