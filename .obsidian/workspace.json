@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Bevy Queries.md",
+                "file": "main/Bevy App Builder.md",
                 "mode": "source",
                 "source": false
               }
@@ -70,8 +70,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "6cc4e74f15cd38dc",
@@ -87,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Bevy Queries.md",
+                "file": "main/Bevy App Builder.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Bevy Queries.md",
+                "file": "main/Bevy App Builder.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Bevy Queries.md"
+                "file": "main/Bevy App Builder.md"
               }
             }
           }
@@ -139,17 +138,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "3e98496113498bfe",
+  "active": "41864191cce69c1c",
   "lastOpenFiles": [
-    "Bevy Systems.md",
-    "Bevy Resources.md",
-    "Bevy Entities and Components.md",
-    "ECS.md",
+    "Untitled.md",
+    "main/Bevy Events.md",
+    "main/Bevy Commands.md",
+    "main/Bevy Queries.md",
+    "main/Bevy Systems.md",
+    "main/Bevy Resources.md",
+    "main/Bevy Entities and Components.md",
+    "main/ECS.md",
     "MQTT Essentials.md",
-    "refs/hibyte/MediQ new instance.md",
-    "main/Spring Servlet Authentication Architecture.md",
-    "main/Spring Security Architecture.md",
-    "main/WWW-Authenticate.md",
-    "main/Spring Security.md"
+    "refs/hibyte/MediQ new instance.md"
   ]
 }
