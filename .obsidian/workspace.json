@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "main/Bevy App Builder.md",
+                "file": "main/Bevy Plugins.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "main/Bevy App Builder.md",
+                "file": "main/Bevy Plugins.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "main/Bevy App Builder.md",
+                "file": "main/Bevy Plugins.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "main/Bevy App Builder.md"
+                "file": "main/Bevy Plugins.md"
               }
             }
           }
@@ -140,6 +140,7 @@
   },
   "active": "41864191cce69c1c",
   "lastOpenFiles": [
+    "main/Bevy App Builder.md",
     "Untitled.md",
     "main/Bevy Events.md",
     "main/Bevy Commands.md",
@@ -148,7 +149,6 @@
     "main/Bevy Resources.md",
     "main/Bevy Entities and Components.md",
     "main/ECS.md",
-    "MQTT Essentials.md",
-    "refs/hibyte/MediQ new instance.md"
+    "MQTT Essentials.md"
   ]
 }
