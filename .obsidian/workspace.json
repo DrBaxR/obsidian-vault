@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "main/Bevy Plugins.md",
+                "file": "Bevy System Order of Execution.md",
                 "mode": "source",
                 "source": false
               }
@@ -70,7 +70,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "6cc4e74f15cd38dc",
@@ -86,7 +87,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "main/Bevy Plugins.md",
+                "file": "Bevy System Order of Execution.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +104,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "main/Bevy Plugins.md",
+                "file": "Bevy System Order of Execution.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "main/Bevy Plugins.md"
+                "file": "Bevy System Order of Execution.md"
               }
             }
           }
@@ -138,8 +139,9 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "41864191cce69c1c",
+  "active": "3e98496113498bfe",
   "lastOpenFiles": [
+    "main/Bevy Plugins.md",
     "main/Bevy App Builder.md",
     "Untitled.md",
     "main/Bevy Events.md",
@@ -148,7 +150,6 @@
     "main/Bevy Systems.md",
     "main/Bevy Resources.md",
     "main/Bevy Entities and Components.md",
-    "main/ECS.md",
-    "MQTT Essentials.md"
+    "main/ECS.md"
   ]
 }
