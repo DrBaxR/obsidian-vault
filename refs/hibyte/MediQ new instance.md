@@ -34,6 +34,9 @@ MP_JWT_VERIFY_ISSUER # the URL of the public key issuer, ending in the realm nam
 JAVAX_SQL_DATASOURCE_MEDIQDATASOURCE_DATASOURCE_URL # jdbc URL of databse
 JAVAX_SQL_DATASOURCE_MEDIQDATASOURCE_DATASOURCE_USER # postgres user
 JAVAX_SQL_DATASOURCE_MEDIQDATASOURCE_DATASOURCE_PASSWORD # postgres password
+###### required for capesaro sync to work ######
+APP_BASEURL # the base url of the deployed instance (used by capesaro sync)
+CAPESARO_SYNC_MP_REST_URI # url of the capesaro sync instance
 ```
 
 The only values the **MUST** be set are `APP_KEYCLOAK_REALM` and `MP_JWT_VERIFY_ISSUER` and the public key - more info about the public key below.
