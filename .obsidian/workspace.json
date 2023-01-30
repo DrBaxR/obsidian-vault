@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "b83744a51a278182",
+        "id": "a0d102d282c565f2",
         "type": "tabs",
         "children": [
           {
-            "id": "6c3e4a198dab0a86",
+            "id": "ec9b1eacc2325fca",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Internet.md",
+                "file": "main/Cypress.md",
                 "mode": "source",
                 "source": false
               }
@@ -70,8 +70,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "6cc4e74f15cd38dc",
@@ -87,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Internet.md",
+                "file": "main/Cypress.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Internet.md",
+                "file": "main/Cypress.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Internet.md"
+                "file": "main/Cypress.md"
               }
             }
           }
@@ -149,17 +148,17 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6c3e4a198dab0a86",
+  "active": "ec9b1eacc2325fca",
   "lastOpenFiles": [
-    "main/Bevy Events.md",
-    "refs/other/Rustlings/chapters/Rustlings - Lifetimes.md",
-    "Internet.md",
-    "Bevy Queries.md",
-    "Bevy Systems.md",
-    "Bevy Resources.md",
-    "Bevy Entities and Components.md",
-    "ECS.md",
-    "MQTT Essentials.md",
-    "refs/hibyte/MediQ new instance.md"
+    "main/Cypress.md",
+    "refs/hibyte/Angular Intro Workshop.md",
+    "main/Angular Auth Flow.md",
+    "main/Internet.md",
+    "refs/hibyte/MediQ new instance.md",
+    "refs/hibyte/Deploy Smartbuilding Edge.md",
+    "refs/hibyte/CaPeSaRo Sync Deployment.md",
+    "mediq.md",
+    "Untitled 1.md",
+    "main/Docker Networking.md"
   ]
 }
