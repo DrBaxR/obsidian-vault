@@ -443,6 +443,232 @@ Note the manual change detection trigger after triggering the click event.
 ### Testing helpers
 It goes without saying that the testing code may get repetitive, and therefore over time you will also develop a suite of testing helpers, which are functions that result after refactoring your tests.
 
+### Filling out forms
+Filling out forms is different based on the input type and value. The generic answer is **find the native DOM element and set the `value` property to the new value**.
+
+Only doing that however does not fully simulate a user's input and will not work with template-driven and reactive forms. For compatibility with Angular we need to dispatch a fake `input` event.
+
+```ts
+const resetInputEl = findEl(fixture, 'reset-input').nativeElement;
+resetInputEl.value = '123';
+resetInputEl.dispatchEvent(new Event('input'));
+```
+
+### Testing inputs
+Inputs can be set in tests via the `fixture.componentInstance` field:
+
+```ts
+const component = fixture.componentInstance;
+component.startCount = 10;
+```
+
+Note that `ngOnInit` and the other life cycle hooks do not get called automatically (just like the change detection), which means that we need to call them by hand:
+
+```ts
+    component.startCount = startCount;
+    // Call ngOnChanges, then re-render
+	component.ngOnChanges();
+	fixture.detectChanges();
+```
+
+**Note:** This is what the book says, in what I tested there is no need to manually call the life cycle hook, because detecting changes was enough.
+
+### Repetitive component specs
+Experts disagree on whether repetitive testing code is a problem at all. 
+
+**On one hand**, testing helpers form a custom language that make tests briefer and easier to understand. 
+
+**One the other hand**, abstractions make tests more complex and therefore harder to understand, which is an issue because a developer reading the specs needs to be familiar with the testing helpers first (*tests should be more readable than the implementation code*).
+
+### Black vs. White box component testing
+Note that in Angular internal properties are not necessarily `private`, since they need to be `public`, in order to be accessed from the template. This happened up until Angular 14 (or 15, I don't remember), when you can access `protected` properties from the template.
+
+This is an advantage because it enforces black-box testing, which is preferred to white-box testing. It enforces it because now you can't access the internals of the component from the test.
+
+## Testing components with children
+The component that was given as example was a component that directly renders HTML and does not use any other child components. This type of component is called a **presentational component**, which are considered low-level component and are easy to manage.
+
+On the other side, there are components that bring multiple low-level components and pull data from different sources, like services. These components are called **container components**. Container components have several types of dependencies, which makes them harder to test.
+
+There are two ways to test components with children:
+1. unit test using **shallow rendering**: child components are not rendered
+2. integration test using **deep rendering**: child components are rendered.
+
+### Shallow testing vs. Deep testing
+We need to decide the level of testing detail for the nested components. If separate unit tests for them exist, we don't need to actually click on each respective increment button (counter example, again). **The integration test needs to prove that the four components work together, without going into the child component details**.
+
+### Unit test
+If we write a spec that looks like this:
+
+```ts
+describe('HomeComponent', () => {
+  let fixture: ComponentFixture<HomeComponent>;
+  let component: HomeComponent;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [HomeComponent],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(HomeComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('renders without errors', () => {
+    expect(component).toBeTruthy();
+  });
+});
+```
+
+Then this will act as a *smoke test*. It checks the presence of a component instance, it does not assert anything specific of the component yet. It just proves that the component renders without errors.
+
+However, this test **does not pass**. This is because Angular does not recognize the custom elements that appear in the template of the parent component (the ones with `app-*`). This is because no components are declared to match these selectors. There are two ways to fix this issue:
+1. Declare the child components in the testing module. **This turns the test into an integration test**.
+2. Tell Angular to ignore the unknown elements. **This turns the test into a unit test**.
+
+If we want Angular to simply ignore the elements that it does not know, we can do something like this when declaring the module:
+
+```ts
+await TestBed.configureTestingModule({
+  declarations: [HomeComponent],
+  schemas: [NO_ERRORS_SCHEMA],
+}).compileComponents();
+```
+
+Now the *smoke test passes*. To check that the independent counters render, we can do this:
+
+```ts
+it('renders an independent counter', () => {
+  const { debugElement } = fixture;
+  const counter = debugElement.query(By.css('app-counter'));
+  expect(counter).toBeTruthy();
+});
+```
+
+You can check that a component child of the parent component has rendered by doing this:
+
+```ts
+it('renders an independent counter', () => {
+  const counter = findComponent(fixture, 'app-counter');
+  expect(counter).toBeTruthy();
+});
+```
+
+To test that an input received the proper value, you can access the `debugElement.properties` map of the component debug element:
+
+```ts
+it('passes a start count', () => {
+  const counter = findComponent(fixture, 'app-counter');
+  expect(counter.properties.startCount).toBe(5);
+});
+```
+
+In case you need to trigger an event on one of the components that you have not rendered due to *shallow rendering*, you can do this:
+
+```ts
+it('listens for count changes', () => {
+  spyOn(console, 'log');
+  const counter = findComponent(fixture, 'app-counter');
+  const count = 5;
+  counter.triggerEventHandler('countChange', count);
+  expect(console.log).toHaveBeenCalledWith(
+    'countChange event from CounterComponent',
+    count,
+  );
+});
+```
+
+Another thing that was showcased in the example above is the concept of *spying on functions*. With spies you can check how many times, with what parameters etc. a function has been called.
+
+### Faking a child component
+Instead of working with empty custom components, we can render **fake child components**. This is a little more useful than telling Angular to ignore all the elements it does not know, since it gives us more confidence when tests pass.
+
+A fake component has the same interface (inputs, outputs, selector), but does not have any dependencies and does not render anything. Here is how you can reduce a component to an *empty shell*:
+
+```ts
+@Component({
+  selector: 'app-counter',
+  template: '',
+})
+class FakeCounterComponent implements Partial<CounterComponent> {
+  @Input()
+  public startCount = 0;
+
+  @Output()
+  public countChange = new EventEmitter<number>();
+}
+```
+
+Now that fake component needs to be added to the declarations of the test module so that angular knows to use that component when it encounters the `app-counter` element. The advantage of using fake components is that we can now query using the `By.directive(...)` method, since components are also a kind of directive.
+
+The advantage of this approach is that we can access the rendered component instance. Having access to the child component, we can make expectations against it.
+
+Checking if the component is rendered/present:
+
+```ts
+it('renders an independent counter', () => {
+  const counterEl = fixture.debugElement.query(
+    By.directive(FakeCounterComponent)
+  );
+  const counter: CounterComponent = counterEl.componentInstance;
+
+  expect(counter).toBeTruthy();
+});
+```
+
+Checking the values of inputs:
+
+```ts
+it('passes a start count', () => {
+  const counterEl = fixture.debugElement.query(
+    By.directive(FakeCounterComponent)
+  );
+  const counter: CounterComponent = counterEl.componentInstance;
+
+  expect(counter.startCount).toBe(5);
+});
+```
+
+Output handling can be done by calling the `emit` method on the output that you want to check:
+
+```ts
+it('listens for count changes', () => {
+  const counterEl = fixture.debugElement.query(
+    By.directive(FakeCounterComponent)
+  );
+  const counter: CounterComponent = counterEl.componentInstance;
+
+  spyOn(console, 'log');
+  const count = 5;
+  counter.countChange.emit(5);
+  expect(console.log).toHaveBeenCalledWith(
+    'countChange event from CounterComponent',
+    count,
+  );
+});
+```
+
+### Faking a child component using ng-mocks
+`ng-mocks` is a library that helps with mocking components. In the section above, we manually created the mock component. It's better (and less tedious) to use a library that does this for us.
+
+If we use [ng-mocks](https://github.com/help-me-mom/ng-mocks), the only thing that changes in the previous code is declaring the component in the test module and querying for the component by the directive:
+
+```ts
+await TestBed.configureTestingModule({
+      declarations: [HomeComponent, MockComponent(CounterComponent)],
+      schemas: [NO_ERRORS_SCHEMA],
+    }).compileComponents();
+    
+// ...
+
+const counterEl = fixture.debugElement.query(
+      // Original class!
+      By.directive(CounterComponent)
+);
+counter = counterEl.componentInstance;
+```
+
 
 
 ## Resources
