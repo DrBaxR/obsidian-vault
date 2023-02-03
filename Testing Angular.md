@@ -669,7 +669,75 @@ const counterEl = fixture.debugElement.query(
 counter = counterEl.componentInstance;
 ```
 
+## Testing components that depend on services
+The previous chapter covered testing components that don't rely on any services. In this chapter we will be using a component that injects a service that keeps track of the count.
 
+There are two ways we can test this component:
+1. A unit test that replaces the service it relies on (`CounterService`) dependency with a fake
+2. An integration test that includes a real `CounterService`
+
+### Service dependency integration test
+For this specific case, since the component that we want to test does not use the service to do any HTTP calls or stuff like that, the test is pretty much the same with the other test we wrote a while back.
+
+The only thing that changes is the fact that the test module needs to have the service specified as a provider:
+
+```ts
+providers: [CounterService],
+```
+
+### Faking service dependencies
+Since the service we need is just a class decorated with `@Injectable`, we can make the fake be a simple object that contains the API that is used in the component (note the spies, no we can `expect` on the methods of the service implementation):
+
+```ts
+const currentCount = 123;
+
+const fakeCounterService:
+  Pick<CounterService, keyof CounterService> = {
+  getCount:
+    jasmine.createSpy('getCount').and.returnValue(of(currentCount)),
+  increment: jasmine.createSpy('increment'),
+  decrement: jasmine.createSpy('decrement'),
+  reset: jasmine.createSpy('reset'),
+};
+```
+
+After that, we can provide the fake to the component we are testing by using the following feature of Angular when declaring the test module:
+
+```ts
+providers: [
+	{ provide: CounterService, useValue: fakeCounterService }
+  ],
+```
+
+Other than these changes, we the test remains mostly the same.
+
+### Fake service with minimal logic
+In order to make the test scenario more realistic, we can also add the minimal logic to our fake service implementation. Here is how the implementation could look like:
+
+```ts
+fakeCount$ = new BehaviorSubject(0);
+
+fakeCounterService = {
+  getCount() {
+	return fakeCount$;
+  },
+  increment() {
+	fakeCount$.next(1);
+  },
+  decrement() {
+	fakeCount$.next(-1);
+  },
+  reset() {
+	fakeCount$.next(Number(newCount));
+  },
+};
+spyOn(fakeCounterService, 'getCount').and.callThrough();
+spyOn(fakeCounterService, 'increment').and.callThrough();
+spyOn(fakeCounterService, 'decrement').and.callThrough();
+spyOn(fakeCounterService, 'reset').and.callThrough();
+```
+
+Remember to call `.and.callThrough()` to make it so Jasmine also calls the original function. Otherwise it will just be ignored.
 
 ## Resources
 https://testing-angular.com/target-audience/#target-audience
