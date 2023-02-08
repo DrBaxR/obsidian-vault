@@ -8,12 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "6f71c9f26607690d",
+            "id": "a4751031a5cf44f2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Testing Angular.md",
+                "file": "Testing Angular Workshop.md",
                 "mode": "source",
                 "source": false
               }
@@ -87,7 +87,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Testing Angular.md",
+                "file": "Testing Angular Workshop.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Testing Angular.md",
+                "file": "Testing Angular Workshop.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Testing Angular.md"
+                "file": "Testing Angular Workshop.md"
               }
             }
           }
@@ -149,17 +149,17 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6f71c9f26607690d",
+  "active": "a4751031a5cf44f2",
   "lastOpenFiles": [
-    "main/Angular Testing.md",
+    "Angular Spectator.md",
+    "Testing Angular Workshop.md",
     "Testing Angular.md",
+    "main/Angular Testing.md",
     "refs/The Testing Pyramid.md",
     "refs/Identifying What to Test.md",
     "refs/Testing is a Mindset.md",
     "main/Cypress.md",
     "refs/hibyte/Angular Intro Workshop.md",
-    "main/Angular Auth Flow.md",
-    "main/Internet.md",
-    "refs/hibyte/MediQ new instance.md"
+    "main/Angular Auth Flow.md"
   ]
 }

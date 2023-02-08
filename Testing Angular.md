@@ -7,8 +7,8 @@ This note includes a summary of the more important parts of the book that can be
 ## Testing principles
 Here are some advantages of testing your code:
 1. **Testing saves time and money**: This happens because tests prevent bugs from causing real damage.
-2. **Testing dormalizes and documetns requirements**: Tests are a formal human and machine readable way to describe how the code should behave.
-3. **Testing make changes safe by preventing regressions**: Tests don't only prevent issues in the present but also in the future, when refactofing on modifying old code.
+2. **Testing normalizes and documenta requirements**: Tests are a formal human and machine readable way to describe how the code should behave.
+3. **Testing make changes safe by preventing regressions**: Tests don't only prevent issues in the present but also in the future, when refactoring on modifying old code.
 
 The International Software Testing Qualifications Board (ISTQB) came up with a couple of principles that shed light on what you can achieve with tests.
 
