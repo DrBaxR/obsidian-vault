@@ -19,7 +19,7 @@ There are three main types of tests:
 Neither of these test types are perfect: they all have their advantages and disadvantages. Therefore, it's a good idea to integrate all of them in your projects.
 
 ## Unit test for `TodoCardComponent`
-You need to import the `TestBed` from `@angular/core/testing`. After that you need to create a testing module, compile it and finally create the `TodoCard` component. All this can be done in the `beforeEach` block:
+You need to import the `TestBed` from `@angular/core/testing`. After that you need to create a testing module, compile it and finally create the `TodoCard` component . All this can be done in the `beforeEach` block:
 
 ```ts
 beforeEach(async () => {
