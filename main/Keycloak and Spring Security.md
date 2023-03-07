@@ -141,6 +141,13 @@ For example, you can have a `user` role that will have the following attributes:
 **Disadvantage:** The attributes are not contained in the JWT, therefore you will need to make a separate request for fetching a role's attributes.
 
 ### Composite Roles Approach
-The first idea I got is to have a `client role` for each possible combination of entity-operation. In our example, this would result in 12 possible roles: user-create, user-read, user-update, user-delete etc.
+The first idea I got is to have a `client role` for each possible combination of entity-operation. In our example, this would result in 12 possible roles: `user_create`, `user_read`, `user_update`, `user_delete` etc.
 
 After that, you can create composite realm roles like `app_user` that will contain all the roles that represent the operations the the role holder can do on resources.
+
+### Composite Roles (Reversed) Approach
+The same idea as the **Composite Roles Approach**, but use `realm roles` instead for the authorities.
+
+The advantage in doing something like this would be that you can create one single realm per application, make the realm roles for it once (the ones that look like `user_create` and `employee_delete`) and then the client will have the composite roles that will be assigned to users.
+
+This is useful because you can create a *single* realm on the Keycloak instance and then reuse that realm for all the instances, only creating a new client for each of the clients.
