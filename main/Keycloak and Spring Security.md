@@ -150,4 +150,6 @@ The same idea as the **Composite Roles Approach**, but use `realm roles` instead
 
 The advantage in doing something like this would be that you can create one single realm per application, make the realm roles for it once (the ones that look like `user_create` and `employee_delete`) and then the client will have the composite roles that will be assigned to users.
 
-This is useful because you can create a *single* realm on the Keycloak instance and then reuse that realm for all the instances, only creating a new client for each of the clients.
+This is useful because you can create a *single* realm on the Keycloak instance and then reuse that realm for all the instances, only creating a new client for each of the instances.
+
+The **disadvantage** would be the fact that the users of all instances would be part of a single realm, which means that there can't be multiple users across different instances that use the same name.
