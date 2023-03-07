@@ -8,13 +8,13 @@
         "type": "tabs",
         "children": [
           {
-            "id": "a4751031a5cf44f2",
+            "id": "a4d9035682953753",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "refs/hibyte/Testing Angular Workshop.md",
-                "mode": "preview",
+                "file": "main/Keycloak and Spring Security.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -70,7 +70,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "6cc4e74f15cd38dc",
@@ -86,7 +87,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "refs/hibyte/Testing Angular Workshop.md",
+                "file": "main/Keycloak and Spring Security.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +104,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "refs/hibyte/Testing Angular Workshop.md",
+                "file": "main/Keycloak and Spring Security.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "refs/hibyte/Testing Angular Workshop.md"
+                "file": "main/Keycloak and Spring Security.md"
               }
             }
           }
@@ -150,8 +151,9 @@
   },
   "active": "41864191cce69c1c",
   "lastOpenFiles": [
-    "main/Angular Spectator.md",
     "refs/hibyte/Testing Angular Workshop.md",
+    "main/Keycloak and Spring Security.md",
+    "main/Angular Spectator.md",
     "refs/Testing Angular.md",
     "main/Angular Testing.md",
     "refs/The Testing Pyramid.md",
