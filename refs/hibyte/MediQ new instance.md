@@ -38,6 +38,8 @@ JAVAX_SQL_DATASOURCE_MEDIQDATASOURCE_DATASOURCE_PASSWORD # postgres password
 #------v required for capesaro sync to work v------#
 APP_BASEURL # the base url of the deployed instance (used by capesaro sync)
 CAPESARO_SYNC_MP_REST_URI # url of the capesaro sync instance
+APP_CAPESARO_USERNAME # the username used to log in to capesaro
+APP_CAPESARO_PASSWORD # the password used to log in to capesaro
 ```
 
 The only values the **MUST** be set are `APP_KEYCLOAK_REALM` and `MP_JWT_VERIFY_PUBLICKEY_ISSUER` and `MP_JWT_VERIFY_PUBLICKEY_LOCATION`.
@@ -279,4 +281,6 @@ In case the import request fails, you need to do some changes to the Space One d
 - make sure all the item links are ID for `generalRisk`
 - change `generalRisk.cod` to `generalRisk.nr`
 - make sure all the item links are ID for `clinicalRisk`
-- - make sure all the item links are ID for `indicatorComment`
+- make sure all the item links are ID for `indicatorComment`
+- make sure all the item links are ID for `task`
+- change `task.id` to `task.cod`
