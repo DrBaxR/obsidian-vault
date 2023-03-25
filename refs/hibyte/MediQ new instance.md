@@ -29,25 +29,26 @@ The backend container has much more configurable options. This document will onl
 ```sh
 KEYCLOAK_MP_REST_URI # keycloak URL, which ends with '/auth/admin/realms'
 APP_KEYCLOAK_REALM # the realm where accounts get imported
-APP_BASE_URL # the base URL where backend is accessed (used by CaPeSaRo sync microservice)
-MP_JWT_VERIFY_ISSUER # the URL of the public key issuer, ending in the realm name
+MP_JWT_VERIFY_PUBLICKEY_ISSUER # the URL of the public key issuer, ending in the realm name
+MP_JWT_VERIFY_PUBLICKEY_LOCATION # the URL from which the JWT public key can be acquired
 JAVAX_SQL_DATASOURCE_MEDIQDATASOURCE_DATASOURCE_URL # jdbc URL of databse
 JAVAX_SQL_DATASOURCE_MEDIQDATASOURCE_DATASOURCE_USER # postgres user
 JAVAX_SQL_DATASOURCE_MEDIQDATASOURCE_DATASOURCE_PASSWORD # postgres password
-###### required for capesaro sync to work ######
+
+#------v required for capesaro sync to work v------#
 APP_BASEURL # the base url of the deployed instance (used by capesaro sync)
 CAPESARO_SYNC_MP_REST_URI # url of the capesaro sync instance
+APP_CAPESARO_USERNAME # the username used to log in to capesaro
+APP_CAPESARO_PASSWORD # the password used to log in to capesaro
 ```
 
-The only values the **MUST** be set are `APP_KEYCLOAK_REALM` and `MP_JWT_VERIFY_ISSUER` and the public key - more info about the public key below.
+The only values the **MUST** be set are `APP_KEYCLOAK_REALM` and `MP_JWT_VERIFY_PUBLICKEY_ISSUER` and `MP_JWT_VERIFY_PUBLICKEY_LOCATION`.
 
 The other environment variables have the following default values:
 - `KEYCLOAK_MP_REST_URI` = https://keycloak.hq-hydra.hibyte.ro/auth/admin/realms
 - `JAVAX_SQL_DATASOURCE_MEDIQDATASOURCE_DATASOURCE_URL` = jdbc:postgresql://postgres:5432/mediq
 - `JAVAX_SQL_DATASOURCE_MEDIQDATASOURCE_DATASOURCE_USER` = test
 - `JAVAX_SQL_DATASOURCE_MEDIQDATASOURCE_DATASOURCE_PASSWORD` = test
-
-**Note:** The public key from Keycloak (which can be found at `META-INF/keycloak-public-key.pem`) also needs to be updated to the one of the new realm.
 
 ## Keycloak realm creation
 This section describes the process of creating and configuring a new Keycloak realm for a new MediQ instance.
@@ -274,9 +275,12 @@ URL: `{instance_URL}/api/import`
 In case the import request fails, you need to do some changes to the Space One data model of the instance from where you want to import data:
 - change `generalRisc.id` to `generalRisc.cod`
 - change `objective.id` to `objective.cod`
-- change `activity.id` to `objective.cod`
+- change `activity.id` to `activity.cod`
 - make sure all the item links are ID for  `indicator`
 - change `department.id` to `department.cod`
 - make sure all the item links are ID for `generalRisk`
 - change `generalRisk.cod` to `generalRisk.nr`
 - make sure all the item links are ID for `clinicalRisk`
+- make sure all the item links are ID for `indicatorComment`
+- make sure all the item links are ID for `task`
+- change `task.id` to `task.cod`

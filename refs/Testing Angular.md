@@ -7,8 +7,8 @@ This note includes a summary of the more important parts of the book that can be
 ## Testing principles
 Here are some advantages of testing your code:
 1. **Testing saves time and money**: This happens because tests prevent bugs from causing real damage.
-2. **Testing dormalizes and documetns requirements**: Tests are a formal human and machine readable way to describe how the code should behave.
-3. **Testing make changes safe by preventing regressions**: Tests don't only prevent issues in the present but also in the future, when refactofing on modifying old code.
+2. **Testing normalizes and documenta requirements**: Tests are a formal human and machine readable way to describe how the code should behave.
+3. **Testing make changes safe by preventing regressions**: Tests don't only prevent issues in the present but also in the future, when refactoring on modifying old code.
 
 The International Software Testing Qualifications Board (ISTQB) came up with a couple of principles that shed light on what you can achieve with tests.
 
@@ -738,6 +738,314 @@ spyOn(fakeCounterService, 'reset').and.callThrough();
 ```
 
 Remember to call `.and.callThrough()` to make it so Jasmine also calls the original function. Otherwise it will just be ignored.
+
+## Testing complex forms
+Check the example presented in the book.
+
+One powerful thing that you can use to simulate async validators (let's say that you use an async validator that uses a debounce time of 1 second, which means that you normally have to wait for 1 second to have the validator execute) is `fakeAsync`. You could use a `setTimeout(..., 1000)`, but that would slow down the test execution.
+
+```ts
+it('submits the form successfully', fakeAsync(async () => {
+  await setup();
+
+  fillForm();
+
+  // Wait for async validators
+  tick(1000);
+
+  findEl(fixture, 'form').triggerEventHandler('submit', {});
+
+  expect(signupService.signup).toHaveBeenCalledWith(signupData);
+}));
+```
+
+Anytime the DOM changes, the change detection needs to be called (`fixture.detectChanges()`).
+
+## Testing components with Spectator
+The base Angular testing tools are a bit lacking: they require a lot a boiler-plate code, they make test specs get repetitive and they offer leaky abstractions (they make you use the thing they are abstracting directly).
+
+For this, one alternative is to use [Spectator](https://github.com/ngneat/spectator). This section contains an overview of what you can do with this library.
+
+### Component with an input
+First off, you need a component factory. The `shallow` property refers to the rendering style, if you also need to render the child components or not:
+
+```ts
+const createComponent = createComponentFactory({
+	component: FullPhotoComponent,
+	shallow: true,
+});
+```
+
+After you got the `createComponent`, you can obtain a `Spectator` object, which serves as an interface for all your testing needs:
+
+```ts
+beforeEach(() => {
+	spectator = createComponent({ props: { photo: photo1 } });
+});
+```
+
+Finally, you can write the assertions after querying by a test id (or by whatever else you'd like):
+
+```ts
+expect(
+  spectator.query(byTestId('full-photo-title'))
+).toHaveText(photo1.title);
+```
+
+### Component with children and service dependency
+If you want to use mock components and providers, Spectator provides a neat way to create those (under the hood, it uses `ng-mocks`).
+
+```ts
+const createComponent = createComponentFactory({
+	component: FlickrSearchComponent,
+	shallow: true,
+	declarations: [
+	  MockComponents(
+		SearchFormComponent, PhotoListComponent, FullPhotoComponent
+	  ),
+	],
+	providers: [mockProvider(FlickrService)],
+});
+```
+
+The `mockProvider` creates an object that resembles the original, but the methods are replaced with Jasmine spies.
+
+After having the `createComponent`, we can jump to the `becoreEach` setup phase:
+
+```ts
+  beforeEach(() => {
+    spectator = createComponent();
+
+    spectator.inject(FlickrService)
+	    .searchPublicPhotos.and.returnValue(of(photos));
+
+    searchForm = spectator.query(SearchFormComponent);
+    photoList = spectator.query(PhotoListComponent);
+    fullPhoto = spectator.query(FullPhotoComponent);
+  });
+```
+
+The `spectator.inject` method is equivalent to the `TestBed.inject` method. We get the `FlickrService` fake instance and configure the `searchPublicPhotos` method to return a fixed value.
+
+Note that the `query` method can also find **components** by their classes and fetch them as component instances. Therefore, you can check the inputs via the component's instance object:
+
+```ts
+it('renders the search form and the photo list, not the full photo', () => {
+  if (!(searchForm && photoList)) {
+    throw new Error('searchForm or photoList not found');
+  }
+  expect(photoList.title).toBe('');
+  expect(photoList.photos).toEqual([]);
+  expect(fullPhoto).not.toExist();
+});
+```
+
+Here is how you would test that a component's outputs are handled properly:
+
+```ts
+it('searches and passes the resulting photos to the photo list', () => {
+  if (!(searchForm && photoList)) {
+    throw new Error('searchForm or photoList not found');
+  }
+  const searchTerm = 'beautiful flowers';
+  searchForm.search.emit(searchTerm);
+
+  spectator.detectChanges();
+
+  const flickrService = spectator.inject(FlickrService);
+  expect(flickrService.searchPublicPhotos).toHaveBeenCalledWith(searchTerm);
+  expect(photoList.title).toBe(searchTerm);
+  expect(photoList.photos).toBe(photos);
+});
+```
+
+### Event handling with Spectator
+If you want, say, to click on an element you can do this:
+
+```ts
+describe('PhotoItemComponent with spectator', () => {
+  /* … */
+
+  it('focusses a photo on click', () => {
+    let photo: Photo | undefined;
+
+    spectator.component.focusPhoto.subscribe((otherPhoto: Photo) => {
+      photo = otherPhoto;
+    });
+
+    spectator.click(byTestId('photo-item-link'));
+
+    expect(photo).toBe(photo1);
+  });
+
+  /* … */
+});
+```
+
+## Testing services
+Services are used when you need to do some side effects or when components that are not parent and child need to communicate.
+
+In theory, service is an umbrella term that refers to anything that can be injected as a dependency. The services that we want to test are that ones that are classes.
+
+There are several types of service, but most of them follow one of these wide spread patterns:
+- Services that have public methods that return values.
+- Services that store data. They hold internal state. We can get/set the state.
+- Services that interact with dependencies. These are often other services. For example, a service might send HTTP requests via Angular's `HttpClient`
+
+### Testing a service with internal state
+Let's say we have this service, that has some private state that can be modified via its public interface:
+
+```ts
+class CounterService {
+  private count: number;
+  private subject: BehaviorSubject<number>;
+  public getCount(): Observable<number> { /* … */ }
+  public increment(): void { /* … */ }
+  public decrement(): void { /* … */ }
+  public reset(newCount: number): void { /* … */ }
+  private notify(): void { /* … */ }
+}
+```
+
+First step is to identify what the service does and create a spec for each of the features:
+
+```ts
+describe('CounterService', () => {
+  it('returns the count', () => { /* … */ });
+  it('increments the count', () => { /* … */ });
+  it('decrements the count', () => { /* … */ });
+  it('resets the count', () => { /* … */ });
+});
+```
+
+The arrange phase consists of instantiating the service (at the moment this is enough, since it is a simple service with no dependencies, but for more complex cases `TestBed` should be used):
+
+```ts
+describe('CounterService', () => {
+  let counterService: CounterService;
+
+  beforeEach(() => {
+    counterService = new CounterService();
+  });
+
+  it('returns the count', () => { /* … */ });
+  it('increments the count', () => { /* … */ });
+  it('decrements the count', () => { /* … */ });
+  it('resets the count', () => { /* … */ });
+});
+```
+
+This is how the spec looks like for one of those features. It only tests the public members of the service, since it's not supposed to access the internal state of the service:
+
+```ts
+it('returns the count', () => {
+  let actualCount: number | undefined;
+  counterService.getCount().subscribe((count) => {
+    actualCount = count;
+  });
+  expect(actualCount).toBe(0);
+});
+```
+
+Keep in mind that within the test environment the observable's callback is called synchronously, when it's needed.
+
+### Testing a service that sends HTTP requests
+Let's say that we have a `FlickrService` that sends some HTTP requests by using Angular's `HttpClient`. There are two ways to test this service:
+- an integration test
+- a unit test
+
+For an **integration** test you need to inject the actual `HttpClient` and make real HTTP requests. It makes little sense to make requests to a production third party API in a testing environment. It makes more sense to use a dedicated test API that returns a fixed value. This API can run on the same machine or in the local network.
+
+In this specific it's better to write a **unit test**. Angular has a powerful helper for testing code that depends on `HttpClient`: the `HttpClientTestingModule`.
+
+For testing a service with dependencies it's really tedious to instantiate a service with `new`. For that we use the `TestBed.inject` method.
+
+#### Call the method under test
+First off, we call the method that we want to test and subscribe to the observable it returns:
+
+```ts
+const searchTerm = 'dragonfly';
+
+describe('FlickrService', () => {
+  let flickrService: FlickrService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [FlickrService],
+    });
+    flickrService = TestBed.inject(FlickrService);
+  });
+
+  it('searches for public photos', () => {
+    flickrService.searchPublicPhotos(searchTerm).subscribe(
+      (actualPhotos) => {
+        /* … */
+      }
+    );
+    /* … */
+  });
+});
+```
+
+#### Find pending requests
+In the second step we need to find the pending request using the `HttpTestingController`, which is a service from the HTTP testing module we added as a dependency:
+
+```ts
+controller = TestBed.inject(HttpTestingController);
+```
+
+Now, with the `controller` you can see what pending requests there are:
+
+```ts
+const request = controller.expectOne(expectedUrl);
+```
+
+#### Respond with fake data
+After we have a pending request that has been checked with `expectOne`, we can send a fake response to that request that the service will receive via the `request` that we cot from the `controller`.
+
+```ts
+request.flush({ photos: { photo: photos } });
+```
+
+#### Check the result of the method called
+Now that we received a request and send a specific response, we can verify the response received by the service:
+
+```ts
+let actualPhotos: Photo[] | undefined;
+flickrService.searchPublicPhotos(searchTerm).subscribe(
+  (otherPhotos) => {
+    actualPhotos = otherPhotos;
+  }
+);
+
+const request = controller.expectOne(expectedUrl);
+// Answer the request so the Observable emits a value.
+request.flush({ photos: { photo: photos } });
+
+// Now verify emitted valued.
+expect(actualPhotos).toEqual(photos);
+```
+
+#### Verify that all the requests have been answered
+This can be done by calling `conroller.verify()`. This assures us that the service did not make any other requests besides the one that we expected.
+
+#### Testing the error case
+In case you want to test what would happen if the response of a request is an error request, you can do this:
+
+```ts
+const status = 500;
+const statusText = 'Internal Server Error';
+const errorEvent = new ErrorEvent('API error');
+/* … */
+const request = controller.expectOne(expectedUrl);
+request.error(
+  errorEvent,
+  { status, statusText }
+);
+```
+
+**Note:** The API of the `controller` gives us way more options. In case you need those, you can check its documentation.
 
 ## Resources
 https://testing-angular.com/target-audience/#target-audience
