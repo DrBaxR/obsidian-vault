@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "refs/hibyte/MediQ new instance.md",
-                "mode": "preview",
+                "file": "refs/L3 Internetworking on Linux.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -87,7 +87,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "refs/hibyte/MediQ new instance.md",
+                "file": "refs/L3 Internetworking on Linux.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "refs/hibyte/MediQ new instance.md",
+                "file": "refs/L3 Internetworking on Linux.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "refs/hibyte/MediQ new instance.md"
+                "file": "refs/L3 Internetworking on Linux.md"
               }
             }
           }
@@ -151,6 +151,10 @@
   },
   "active": "a4d9035682953753",
   "lastOpenFiles": [
+    "ARP Tables.md",
+    "refs/L3 Internetworking on Linux.md",
+    "refs/L2 vs. L3 Internetworking.md",
+    "refs/hibyte/MediQ new instance.md",
     "main/Keycloak and Spring Security.md",
     "refs/hibyte/Testing Angular Workshop.md",
     "main/Angular Spectator.md",
