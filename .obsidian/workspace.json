@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "refs/L3 Internetworking on Linux.md",
+                "file": "CS50 Introduction to Artificial Intelligence with Python.md",
                 "mode": "source",
                 "source": false
               }
@@ -70,8 +70,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "6cc4e74f15cd38dc",
@@ -87,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "refs/L3 Internetworking on Linux.md",
+                "file": "CS50 Introduction to Artificial Intelligence with Python.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "refs/L3 Internetworking on Linux.md",
+                "file": "CS50 Introduction to Artificial Intelligence with Python.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "refs/L3 Internetworking on Linux.md"
+                "file": "CS50 Introduction to Artificial Intelligence with Python.md"
               }
             }
           }
@@ -151,8 +150,9 @@
   },
   "active": "a4d9035682953753",
   "lastOpenFiles": [
-    "ARP Tables.md",
     "refs/L3 Internetworking on Linux.md",
+    "CS50 Introduction to Artificial Intelligence with Python.md",
+    "ARP Tables.md",
     "refs/L2 vs. L3 Internetworking.md",
     "refs/hibyte/MediQ new instance.md",
     "main/Keycloak and Spring Security.md",
