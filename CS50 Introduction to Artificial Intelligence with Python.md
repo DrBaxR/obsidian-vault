@@ -52,7 +52,44 @@ The way you can approach this type of problem is by following an algorithm:
 **frontier** = all the states that we can reach at one point in the execution of the algorithm
 **expand** = get all the nodes that you can reach from the current node
 
-21:20
+## Search Algorithms
+Mainly, there are two search algorithms, or two ways to implement the algorithm described in the *Approach* section:
+- Depth-First Search (**DFS**)
+- Breadth-First Search (**BFS**)
+
+#### Intuitive comparison
+Intuitively, the difference between the two of them is as follows: *DFS* picks a path and follows it until it reaches a dead-end or the goal. In case it reaches a dead-end, then it returns to the most recent decision point and picks a path that was not already picked.
+
+On the other side, *BFS* does not commit to a single path: it takes one step on all the paths available - it first explores the nodes that are *1-away* from the start, then it explores the ones that are *2-away* and so on...
+
+One advantage that *BFS* has over *DFS* is that it's guaranteed to find the shortest path from the start node to the goal.
+
+#### Implementation comparison
+From the point of view of the implementation, the only difference is the data structure you use to store the nodes that are in the *frontier*:
+- For *DFS* you would use a **stack**
+- For *BFS* you would use a **queue**
+
+## Informed Search Algorithms
+Up until now, we discussed DFS and BFS, which are **uninformed search algorithms**, which means that they make their decisions based on a pre-determined strategy that *does not take into account any **problem specific information***.
+
+**Informed search algorithms** on the other side take into account some problem specific information when they pick what node to explore out of the frontier. In order to make the decision, they use a **heuristic function** (often called *h(n)*), which takes a state as an input and returns how close **we think** the state is to the goal state.
+
+And example of an informed search algorithm is **Greedy Best-First Search** (GBFS).
+
+### Greedy Best-First Search
+This algorithm always picks the node with the *lowest h(n) value* to explore next. The efficiency of the algorithm is therefore given by the quality of the heuristic function (how well we manage to estimate the closeness of a node to the goal).
+
+This algorithm is **not** guaranteed to find the shortest path.
+
+### A* Search
+Unlike GBFS, **A* search** uses more information to figure out which node to expand/pick as the next step out of the frontier: *it's a search algorithm that expands the node with the lowest value of g(h) + h(n)*, where **g(n)** is the cost to reach the node and **h(n)** is the estimated cost to goal.
+
+A* search will find the optimal solution if the heuristing function respects the rules:
+- It's admissible (never overestimates the true cost)
+- It's consistent (for every node *n*, and successor *n'* with step cost *c*, *h(n) <= h(n') + c*)
+
+## Adversarial Search
+...
 
 ## Resources
 https://learning.edx.org/course/course-v1:HarvardX+CS50AI+1T2020/block-v1:HarvardX+CS50AI+1T2020+type@sequential+block@99364b31367c43e6a1c2146ed9a0b154/block-v1:HarvardX+CS50AI+1T2020+type@vertical+block@abe10e60ff224bd5bc0b33e37ab607cd
