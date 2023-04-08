@@ -8,5 +8,10 @@
   },
   "alwaysUpdateLinks": true,
   "vimMode": true,
-  "showLineNumber": true
+  "showLineNumber": false,
+  "spellcheckLanguages": [
+    "en-US",
+    "ro"
+  ],
+  "spellcheck": false
 }

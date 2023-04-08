@@ -1,10 +1,5 @@
 # To Research
-- [ ] [[JPA]] - hibernate
 - [ ] [[Web Workers]]
-- [ ] [[Keycloak]]
-- [ ] [[JDK]]
-- [ ] [[Linux LVM]]
-- [ ] [[Display Manager]]
-- [ ] [[Bootloader]]
 - [ ] Crafting interpreters
 - [ ] OWASP dev guide [document](https://github.com/OWASP/DevGuide)
+- [ ] Linux networking (https://www.actualtechmedia.com/wp-content/uploads/2017/12/CUMULUS-NETWORKS-Linux101.pdf)

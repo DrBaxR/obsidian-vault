@@ -8,12 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "3e98496113498bfe",
+            "id": "a4d9035682953753",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Bevy System Order of Execution.md",
+                "file": "CS50 Introduction to Artificial Intelligence with Python.md",
                 "mode": "source",
                 "source": false
               }
@@ -87,7 +87,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Bevy System Order of Execution.md",
+                "file": "CS50 Introduction to Artificial Intelligence with Python.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Bevy System Order of Execution.md",
+                "file": "CS50 Introduction to Artificial Intelligence with Python.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Bevy System Order of Execution.md"
+                "file": "CS50 Introduction to Artificial Intelligence with Python.md"
               }
             }
           }
@@ -136,20 +136,36 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
-  "active": "3e98496113498bfe",
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "a4d9035682953753",
   "lastOpenFiles": [
-    "main/Bevy Plugins.md",
-    "main/Bevy App Builder.md",
-    "Untitled.md",
-    "main/Bevy Events.md",
-    "main/Bevy Commands.md",
-    "main/Bevy Queries.md",
-    "main/Bevy Systems.md",
-    "main/Bevy Resources.md",
-    "main/Bevy Entities and Components.md",
-    "main/ECS.md"
+    "templates/Reference Template.md",
+    "CS50 Introduction to Artificial Intelligence with Python.md",
+    "refs/L3 Internetworking on Linux.md",
+    "ARP Tables.md",
+    "refs/L2 vs. L3 Internetworking.md",
+    "refs/hibyte/MediQ new instance.md",
+    "main/Keycloak and Spring Security.md",
+    "refs/hibyte/Testing Angular Workshop.md",
+    "main/Angular Spectator.md",
+    "refs/Testing Angular.md",
+    "main/Angular Testing.md",
+    "refs/The Testing Pyramid.md",
+    "refs/Identifying What to Test.md",
+    "refs/Testing is a Mindset.md",
+    "main/Cypress.md",
+    "refs/hibyte/Angular Intro Workshop.md",
+    "main/Angular Auth Flow.md"
   ]
 }
