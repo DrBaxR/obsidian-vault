@@ -134,5 +134,19 @@ function MIN-VALUE(state):
 	 return v
 ```
 
+### Optimizations
+As games get more complex, this algorithm can start to take up a lot more memory and a lot more time to compute a *next move*. Therefore, it's a good idea to think of optimizations to this algorithm.
+
+One such optimization is called **alpha-beta pruning**, which tries to reduce the number of computations we do by keeping track of the best and worst possible outcomes at a certain move.
+
+Another optimization would be to instead of simulate the entire game each time, to just simulate a couple moves (an arbitraty number). The issue that arises then is the fact that we no longer have a simple way to compute the utility of the states of the game (in case we reach a non-terminal state), which means that we will need a way to *estimate the utility of any given state of the game*.
+
+The **evaluation function** is exactly that: *a function that estimates the expected utility of the game from a given state*.
+
+This final optimization modifies the algorithm in what is called **depth-limited minimax**.
+
+# Knowledge
+...
+
 # Resources
 CS50 Introduction to Artificial Intelligence with Python 2020
