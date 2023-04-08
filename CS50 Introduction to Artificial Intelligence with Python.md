@@ -89,7 +89,50 @@ A* search will find the optimal solution if the heuristing function respects the
 - It's consistent (for every node *n*, and successor *n'* with step cost *c*, *h(n) <= h(n') + c*)
 
 ## Adversarial Search
-...
+Soemtimes, we can find ourselves in situations where I am an agent that is trying to find an optimal solution, but at the same time, there is another agent that is fighting against me and trying to find an optimal solution for himself. This type of problem is called an **adversarial search** algorithm.
 
-## Resources
-https://learning.edx.org/course/course-v1:HarvardX+CS50AI+1T2020/block-v1:HarvardX+CS50AI+1T2020+type@sequential+block@99364b31367c43e6a1c2146ed9a0b154/block-v1:HarvardX+CS50AI+1T2020+type@vertical+block@abe10e60ff224bd5bc0b33e37ab607cd
+We will use a game of tic-tac-toe as an example.
+
+### Minimax
+The first thing that we need to do is to find a way to numerically encode a winning/losing/draw state of the game: *-1 means that O won; 0 means that it's a draw; and 1 means that X won*.
+
+In this algorithm, there are two agents:
+- **MAX** (or X), who aims to maximize the score
+- **MIN** (or Y), who aims to minimize the score
+
+This algorithm will use the following notations to represent certain aspects of the game:
+- *S0*: initial state - *PAYLER(s)*: returns which player to move in state *s*
+- *ACTIONS(s)*: returns all legal moves in state *s*
+- *RESULT(s, a)*: returns state after action *a* is taken in state *s*
+- *TERMINAL(s)*: checks if state *s* is a terminal state
+- *UTILITY(s)*: final numerical value for terminal state *s*
+
+Having decided upon these notions, the algorithm can be represented as such - given a state *s*:
+- **MAX** picks action *a* in *ACTIONS(s)* that produces highest value of *MIN-VALUE(RESULT(s, a))*
+- **MIN** picks action *a* in *ACTIONS(s)* that produces  smallest value of *MAX-VALUE(RESULT(s, a))*,
+Where the two functions are:
+
+```
+function MAX-VALUE(state):
+	if TERMINAL(state):
+		return UTILITY(state)
+	  
+	v = -inf
+	for action in ACTIONS(state):
+		v = MAX(v, MIN-VALUE(RESULT(state, action)))
+	return v
+```
+
+```
+function MIN-VALUE(state):
+	if TERMINAL(state):
+		return UTILITY(state)
+	
+	 v = inf
+	 for action in ACTIONS(state):
+		 v = MIN(v, MAX-VALUE(RESULT(state, action)))
+	 return v
+```
+
+# Resources
+CS50 Introduction to Artificial Intelligence with Python 2020
