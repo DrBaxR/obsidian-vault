@@ -146,7 +146,37 @@ The **evaluation function** is exactly that: *a function that estimates the expe
 This final optimization modifies the algorithm in what is called **depth-limited minimax**.
 
 # Knowledge
-...
+People know stuff about the word and based on that information, they *draw conclusions* about the world.
+
+This is the exact thing that we will try to do using computers - we will build
+
+**knowledge-based agents** = agents that reason by operating on internal representations of knowledge
+
+## Notation
+First we will need to discuss some symbols and notions:
+- *Proposition symbols*: they can be anything, generally letters (`P`, `Q`, `R`) and they represent a statement about the world, or **sentence** (an assertion about the world in a knowledge representation language)
+- *Logical connectives*: they are the things that connect sentences. The most common of them are `not`, `and`, `or`, `implication` and `biconditional`; all of which have a truth table that represents the way they connect sentences
+
+Other notions:
+- **model**: assignment of a truth value to every propositional symbol
+- **knowledge base**: set of sentences known by a *knowledge-based agent*
+- **entailment**: `a |= b` is read as ***a** entails **b*** and is defined as *"in every model in which sentence **a** is true. sentence **b** is also true"*
+- **inference**: the process of deriving new sentences from old ones
+
+Our goal when solving a knowledge problem is to answer the following question: *Does `KB |= a`?*, where `KB` is our knowledge base and `a` is a sentence that we want to find out if it's true.
+
+## Model Checking
+This is an algorithm that can be used to solve inference problems. Here's what the steps are:
+- To determine if KB |= a:
+	- Enumerate all possible models
+	- If in every model where *KB* is true *a* is true, then *KB entails a*
+	- Otherwise, KB does not entail a
+
+## Knowledge Engineering
+This is the process of trying to take a problem and representing it in logical statements which get thrown into a knowledge base (so that a computer can undesrtand them), meaning that they can then be used in inference algorithms to solve problems.
+
+## Inference Rules
+1:04:33
 
 # Resources
 CS50 Introduction to Artificial Intelligence with Python 2020
