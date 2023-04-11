@@ -176,7 +176,42 @@ This is an algorithm that can be used to solve inference problems. Here's what t
 This is the process of trying to take a problem and representing it in logical statements which get thrown into a knowledge base (so that a computer can undesrtand them), meaning that they can then be used in inference algorithms to solve problems.
 
 ## Inference Rules
-1:04:33
+There are certain rules that we can use to obtain new information out of the statements that we already have.
+
+Using those rules, we can use the same algorithms that we used in search problmes to solve knowledge problems. Here's an analogy netween search and knowledge problems (where we apply a technique called **theorem proving**):
+- initial state: starting knowledge base
+- actions: inference rules
+- transition model: new knowledge base after inference
+- goal test: check statement we are trying to prove
+- path cost function: number of steps in proof
+
+**clause** = a disjuction of literals (a bunch of symbols with an *or* between them)
+**conjunctive normal form** = logical sentence that is a conjunction of clauses (an *and* of *or*s)
+
+### Conversion to CNF
+There's a certain algorithm that uses the inference rules to convert any statement into a CNF:
+- eliminate biconditionals
+- eliminate implications
+- move negations inwards using **De Morgan's Laws**
+- use distributive law to distribute *or* wherever possible
+
+## Inference by Resolution
+Another algorithm that we can use to determine if KB |= a is called *resolution*:
+- to determine if KB |= a
+	- convert *(KB & ~a)* to CNF
+	- keep checking to see if we can use resolution to produce a new clause
+		- if ever we produce the empty clause (equivalent to false), we have a contradiction, and KB |= a
+		- otherwise, if we can't add new clauses, no entailment
+
+## First-Order Logic
+Propositional logic (the one we've been using up until now) has certain limitations and can get hard to use to represent certain statements. This is a problem that first-order logic solves.
+
+In first-order logic we have two types of symbils: *constant* and *predicate*. It also introduces some more concepts to which we can apply the concepts from propositional logic:
+- universal quantification
+- existential quantification
+
+# Uncertainty
+...
 
 # Resources
 CS50 Introduction to Artificial Intelligence with Python 2020
