@@ -211,7 +211,44 @@ In first-order logic we have two types of symbils: *constant* and *predicate*. I
 - existential quantification
 
 # Uncertainty
-...
+Sometimes we won't be only working with events that are either true or false. In times like these, we don't know exactly whether something happens or it does not happed, therefore we need to introduce a way to model uncertainty.
+
+The simplest way to do this is by using probabilities. Most of the times, probability won't be enough, so we'll need to also introduce **conditional probability**, for example *the probability that a disease manifests given some test results* - P(disease/test results).
+
+## Random Variables
+A variable in probability theory with a domain of possible values it can take on. For example, a random variable can be *Flight* and the values it can take are *{on time, delayed, cancelled}*.
+
+Having a random variable, describing the values of each value it takes is called a **probability distribution**. Using the same *flight* example:
+
+```
+P(Flight = on time) = 0.6
+P(Flight = delayed) = 0.3
+P(Flight = cancelled) = 0.1
+```
+
+**Independence** is the knowledge that one event occurs does not affect the probability of the other event.
+
+## Bayes' Rule
+This is a theorem that is really common in statistics and anywhere probabilities are used, and it is really handy for conditional probabilities.
+
+Here's an example of what we can do with it: *Knowing **P(medical test result | disease)**, we can calculate **P(disease | medical test result)***.
+
+## Join Probability
+This is a probability distribution, only for two random variables at one time. These can be represented in a table.
+
+Here's an example: *Given we have two random variables **rain** and **cloud**, a joint probability would be having the probabilities of the following events happening: **cloud & rain**, **cloud & ~rain**, **~cloud & rain** and **~cloud & ~rain***.
+
+## Probability Rules
+There are many rules that serve as the foundation that we will use in our AI algorithms. The names of the ones presented in the lecture:
+- Negation
+- Inclusion-Exclusion
+- Marginalization
+- Conditioning
+
+These rules and some others that were presented before, such as *Bayes' rule* will be used internally by the following algorithms.
+
+## Bayesian Networks
+49:50
 
 # Resources
 CS50 Introduction to Artificial Intelligence with Python 2020
