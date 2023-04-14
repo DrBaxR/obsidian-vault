@@ -248,7 +248,57 @@ There are many rules that serve as the foundation that we will use in our AI alg
 These rules and some others that were presented before, such as *Bayes' rule* will be used internally by the following algorithms.
 
 ## Bayesian Networks
-49:50
+Long story short, a Bayesian network is descrobed as such:
+- directed graph
+- each node represents a random varaible
+- arrow from *X* to *Y* means that *X* is a parent of *Y*
+- each node *X* has a probability distribution **P(X | Parents(X))**
+
+### Example
+The random variables are as such: *Rain {none, light, heavy}*, *Maintenance {yes, no}*, *Train {on time, delayed}*, *Appointment {attend, miss}*.
+
+The dependencies are as such: *Rain -> Maintenance*, *Rain -> Train*, *Maintenance -> Train*, *Train -> Appointment*.
+
+Also, for each of the random variables we have a conditional probability distribution (conditional on its parents). For example, for *Rain* we can think of a table, its header being *Rain Value; Maintenance Value; on time probability, delayed probability*.
+
+### Inference
+Here's what we can do once we have the data described above:
+- Query *X*: variable for wh ich to  compute distribution
+- Evidence variables E: observed variables for event *e*
+- Hidden variables *Y*: non-evidence, non-query variable
+- Goal: calculate **P(X | e)**.
+
+Applied to the example problem above, the goal can sound like this: *given that it ls light raining and there is no maintenance, what's the probability distribution of **Appointment***. - **P(Appointment | light, no)**
+
+## Sampling
+Since the process of computing a solution with the inference algorithm can be quite expensive, an optimization would be to run a bunch of simulations and then take the collective result as the solution.
+
+There are multiple sampling algorithms, such as **rejection sampling** and **likelihood weighting**
+
+## Markov Models
+Sometimes we have to deal with uncertainty over a period of time. For example, we want to predict the weather for the next 10 days.
+
+For such cases we will make the **Markov assumption**: *the assumption that the current state depends on only a finite fixed number of previous states.*
+
+We will use what is called a **transition model**, which is best described with an example: *a table that contains the following probabilities: today rains and yerderday rained; today rains and yesterday was sunny; today is sunny and yesterday rained; today is sunny and yesterday was sunny*.
+
+Using this transition model we can generate what is called a **Markov chain**.
+
+## Hidden Markov Models
+We can't observe the state of the world (in our example whether it it raining or not), but we can observe some *hidden state* (such as whether people are carrying unbrellas ur not).
+
+We need to make an assumption (**sensor Markov assumption**): *the assumption that the evidence variable (the thing that we observe) depends only on the corresponding state*.
+
+We will also need something else besides the **transition model**: the **sensor model** - *what's the probability that today is raining if people are carrying umbrellas and if they are not; same for probability of it being sunny*.
+
+In this model, there are certain tasks that are defided and can be solved (by a library for example):
+- **filtering** - given observations from start until now, calculate distribution for current state
+- **prediction** - given observations from start until not, calculate distribution for a future state
+- **smoothing** - given observations from start until now, calculate distribution for past state
+- **most likely exaplanation** - given observations from start until now, calculate most likely sequence of states
+
+# Optimization
+
 
 # Resources
 CS50 Introduction to Artificial Intelligence with Python 2020
