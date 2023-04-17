@@ -136,7 +136,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -148,7 +149,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "41864191cce69c1c",
+  "active": "3e98496113498bfe",
   "lastOpenFiles": [
     "main/Bevy System Order of Execution.md",
     "main/Bevy Plugins.md",

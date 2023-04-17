@@ -298,7 +298,66 @@ In this model, there are certain tasks that are defided and can be solved (by a 
 - **most likely exaplanation** - given observations from start until now, calculate most likely sequence of states
 
 # Optimization
+This is another type of problem that you might encounter in the field of AI. They show some similarities to *search problems*, in that there are multiple states and you switch from one to another via actions you take, however the end goal **is not knwon**, you have to find it.
 
+An example of a problem is: *you have a city with houses placed all over the place, you need to place two hospitals so that the accumulated distance from the houses to the hospotals is minimal.*
+
+## Local Search
+In this type of algorithm you start in a state, only keep track of the current state you are in and pick an action to make so that you move to the next state.
+
+An example is **hill climbing**:
+```
+function HILL-CLIMB(problem):
+	current = initial state of problem
+	repreat:
+		neighbor = highest valued neighbor of current
+		if neighbor not better than current:
+			return current
+```
+
+The iissue with this type of algorithm is that you are not guaranteed to find the maximum. You may get stuck in a **local maximum**.
+
+Another algorithm for solving a local search problem that can lead to better resolts than *hill climbing* is called **simulated annealing**. This one can lead to solving the issue created by local minimums and, in principle, works as follows:
+- Early on, higher *temperature*: more likely to accept neighbors that are worse than current state
+- Later on, lower *temperature*: less likely to accept neighbors that are worse than current state
+
+## Linear Programming
+This is another type of problem and has the following requirements:
+- Minimize a cost function *c1\*x1 + c2\*x2 + ... + cn\*xn*
+- With constraints of form *c1\*x1 + c2\*x2 + ... + cn\*xn <= b* (or with equality)
+- With bounds for each varaible *li <= xi <= ui*
+
+#### Example
+Two machines X1 and X2. X1 costs $50/hour to run, X2 costs $80/hour to run. Goal is to minimize cost.
+
+X1 requires 5 units of labor per hour. X2 requires 2 units of labor per hour. Total of 20 units of labor to spend.
+
+X1 produces 10 units of output per hour. X2 produces 12 units of output per hour. Company needs 90 units of output.
+
+## Constraint Satisfaction
+Yet another type of problem. Here's the requirements to categorize a problem as **constraint satisfaction**:
+- Set of varaibles {X1, X2, ..., Xn}
+- Set of domains for each variable {D1, D2, ..., Dn}
+- Set of constraints C
+
+#### Example
+Sudoku:
+- {(0, 0), (0, 1), ...} (each square)
+- {1, 2, 3, 4, 5, 6, 7, 8, 9} for each variable
+- {(0, 0) != (0, 1) != (0, 2), ...}
+
+#### Solving
+CSPs can be considered **search problems**. Here's how:
+- *initial state*: empty assignment (no variables)
+- *actions*: add a *{variable = value}* to assignment
+- *transition model*: shows how adding an assignment changes the assignment
+- *goal test*: check if all variables are assigned and constraints are all satisfied
+- *path cost function*: all paths have same cost (we don't care)
+
+Since they CSPs can be considered search problems, all the algorithms that can be applied to solve search problems can also be applied for CSPs (such as *BFS*, and *DFS*). However, they are not optimal and since CSPs are more specialized search problems we can use more information for a better algorithm: **backtracking search**.
+
+# Learning
+...
 
 # Resources
 CS50 Introduction to Artificial Intelligence with Python 2020
