@@ -8,12 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "3e98496113498bfe",
+            "id": "134f46366ac4b1da",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CS50 Introduction to Artificial Intelligence with Python.md",
+                "file": "main/RabbitMQ.md",
                 "mode": "source",
                 "source": false
               }
@@ -87,7 +87,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CS50 Introduction to Artificial Intelligence with Python.md",
+                "file": "main/RabbitMQ.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CS50 Introduction to Artificial Intelligence with Python.md",
+                "file": "main/RabbitMQ.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CS50 Introduction to Artificial Intelligence with Python.md"
+                "file": "main/RabbitMQ.md"
               }
             }
           }
@@ -149,8 +149,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "3e98496113498bfe",
+  "active": "134f46366ac4b1da",
   "lastOpenFiles": [
+    "CS50 Introduction to Artificial Intelligence with Python.md",
+    "main/RabbitMQ.md",
     "main/Bevy System Order of Execution.md",
     "main/Bevy Plugins.md",
     "main/Bevy App Builder.md",
