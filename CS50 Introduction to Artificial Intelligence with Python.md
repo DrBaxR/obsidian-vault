@@ -357,6 +357,70 @@ CSPs can be considered **search problems**. Here's how:
 Since they CSPs can be considered search problems, all the algorithms that can be applied to solve search problems can also be applied for CSPs (such as *BFS*, and *DFS*). However, they are not optimal and since CSPs are more specialized search problems we can use more information for a better algorithm: **backtracking search**.
 
 # Learning
+We don't tell the computer exactly what to do, but we give it access to **information**, from which it has to deduct information, find patterns and ultimately **learn** from it.
+
+There are multiple types of machine learning, some of which being:
+- **Supervised learning**
+- **Reinforcement learning**
+- **Unsupervised learning**
+
+## Supervised Learning
+Given a data set of input-output pairs, learn a function to map inputs to outputs.
+
+### Classification
+Supervides learning task of learning a function mapping an input point to a discrete category.
+
+#### Nearest-Neighbor Classification
+Algorithm that, given an input, chooses the class of the nearest data point to that input.
+
+A variation of this algorithm is the **k-Nearest-Neighbor Classification** algorithm, where given an input, it chooses the most common class out of the *k* nearest data points to that input.
+
+#### Perceptron
+This is yet another algorithm that can be used to classify data. It has a certain function to update each weight of a function given a data point *(x, y)*.
+
+#### Support Vector Machines
+This algorithm uses a **maximum margin separator** to split the data in multiple categories. It represents a boundary that maximizes the distance between any of the data points.
+
+### Regression
+It is a supervised learning task of learning a function mapping an input point to a consinuous value.
+
+You basically generate a hypothesis and evaluate how good it is based on a **loss function**: a function tha expresses how poor hypothesis performs.
+
+*Supervised learning* problems have a problem that may arise that is called **overfitting**: a model that fits too closely to a particular data set and therefore may fail to generalize to future data.
+
+For this reason, the concept of **regularization**: penalizing hypotheses that are more complex to favor simpler, more general hypotheses.
+
+A practice that makes it less likely that you *overfit* your model is **holdout cross-validation**: splitting data into a training set and a test set, such that learning happens on the training set and is evaluated on the test set.
+
+Another type of *cross-validation* is **k-fold cross-validation**: splitting data into *k* sets, and experimenting *k* times, using each set as a test set once, and using remaining data as training set.
+
+### Reinforcement Learning
+Given a set of rewards of punishments, learn what actions to take in the future.
+
+The general flow of such an algorithm is:
+- There is an environment that has multiple states, of which the agent (AI) is put into an initial one
+- Agent can take an action, which wil lresult into the change of the state it is in
+- Based on the action it took and the state it got into, the agent receives a reward.
+
+#### Markov Decision Proces
+This is a way to model the *world* of reinforcement learning:
+- Set of states **S**
+- Set of actions **ACTIONS(s)**
+- Transition model **P(s' | s, a)**
+- Reward function **R(s, a, s')**
+
+#### Q-Learning
+This is a method for learning a function *Q(s, a)*, esimate of the value of performing action *a* in state *s*.
+
+### Unsupervised Learning
+Given input data without any additional feedback, learn patterns.
+
+#### k-Means Clustering
+An algorithm for clustering data based on repretedly assigning point sto clusters and updating those clusters' centers.
+
+**Clustering** is exactly what the definition of *unsupervised learning* described: finding patterns.
+
+# Neural Networks
 ...
 
 # Resources
