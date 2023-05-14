@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "a0d102d282c565f2",
+        "id": "e137dcb00bff08cd",
         "type": "tabs",
         "children": [
           {
-            "id": "3e98496113498bfe",
+            "id": "746dd037370a6962",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CS50 Introduction to Artificial Intelligence with Python.md",
+                "file": "Squirel Roadmap.md",
                 "mode": "source",
                 "source": false
               }
@@ -65,13 +65,20 @@
               "type": "starred",
               "state": {}
             }
+          },
+          {
+            "id": "92427473e38a5db8",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "6cc4e74f15cd38dc",
@@ -87,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CS50 Introduction to Artificial Intelligence with Python.md",
+                "file": "Squirel Roadmap.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CS50 Introduction to Artificial Intelligence with Python.md",
+                "file": "Squirel Roadmap.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CS50 Introduction to Artificial Intelligence with Python.md"
+                "file": "Squirel Roadmap.md"
               }
             }
           }
@@ -136,10 +143,25 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
-  "active": "41864191cce69c1c",
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "746dd037370a6962",
   "lastOpenFiles": [
+    "Game Development Stages.md",
+    "Squirel Roadmap.md",
+    "Squirel.canvas",
+    "refs/CS50 Introduction to Artificial Intelligence with Python.md",
     "main/Bevy System Order of Execution.md",
     "main/Bevy Plugins.md",
     "main/Bevy App Builder.md",
