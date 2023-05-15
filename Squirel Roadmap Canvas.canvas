@@ -1,0 +1,30 @@
+{
+	"nodes":[
+		{"id":"9dff584d4e09e550","x":120,"y":-460,"width":377,"height":340,"type":"text","text":"# Planning\n- [ ] Decide core mechanics\n- [ ] Decide gameplay loop (overview)\n- [ ] Decide overall direction of the story\n- [ ] Decide monetization strategy\n- [ ] Take in consideration marketing/building a community\n- [ ] Decide platforms for game"},
+		{"type":"file","file":"Squirel Roadmap.md","id":"8274d5077a05b0fb","x":-920,"y":-460,"width":680,"height":1240},
+		{"id":"bfd973db67eb5c49","x":600,"y":-341,"width":200,"height":103,"type":"text","text":"**Game Design Document**"},
+		{"id":"efcc62156fd5636a","x":120,"y":-5,"width":377,"height":290,"type":"text","text":"# Pre-Production\n- [ ] Start development process\n- [ ] Get accustomed to Unity\n- [ ] Build prototypes\n- [ ] Make sure game idea is fun\n- [ ] Start working on actual game\n- [ ] Marketing start & Build community"},
+		{"id":"9a13761781a62a23","x":600,"y":105,"width":200,"height":70,"type":"text","text":"**Pitch**"},
+		{"id":"5d1ad75f00c6f8d6","x":600,"y":240,"width":200,"height":70,"type":"text","text":"**Teaser Trailer**"},
+		{"id":"6c23a6d2d08eb431","x":120,"y":420,"width":377,"height":220,"type":"text","text":"# Funding\n- Hibyte\n- Crowdfunding\n- Publisher"},
+		{"id":"82d2f7b972d5f1a4","x":120,"y":780,"width":377,"height":240,"type":"text","text":"# Production\n- [ ] Development\n- [ ] Art/Design\n- [ ] Sound Design/OST"},
+		{"id":"51a828f96865dc59","x":600,"y":495,"width":200,"height":70,"type":"text","text":"**Resources**"},
+		{"id":"b94354cfe4a68151","x":600,"y":-20,"width":200,"height":60,"type":"text","text":"**Working Demo**"},
+		{"id":"c423fca1cc515fe1","x":600,"y":870,"width":200,"height":60,"type":"text","text":"**Product**"},
+		{"id":"c467413349e57468","x":120,"y":1140,"width":377,"height":240,"type":"text","text":"# Launch\n- [ ] Marketing campaign\n- [ ] Trailer\n- [ ] Launch"},
+		{"id":"40c85e9ddae823e9","x":120,"y":1480,"width":377,"height":260,"type":"text","text":"# Post-Launch\n- [ ] DLC\n- [ ] Free content updates"}
+	],
+	"edges":[
+		{"id":"2d2ff2bd51319554","fromNode":"9dff584d4e09e550","fromSide":"right","toNode":"bfd973db67eb5c49","toSide":"left"},
+		{"id":"2fc62f8a76368afe","fromNode":"efcc62156fd5636a","fromSide":"right","toNode":"b94354cfe4a68151","toSide":"left"},
+		{"id":"4610b2d8bd1bdc69","fromNode":"efcc62156fd5636a","fromSide":"right","toNode":"9a13761781a62a23","toSide":"left"},
+		{"id":"eaabb4041792ddad","fromNode":"efcc62156fd5636a","fromSide":"right","toNode":"5d1ad75f00c6f8d6","toSide":"left"},
+		{"id":"2818fffdde586cae","fromNode":"9dff584d4e09e550","fromSide":"bottom","toNode":"efcc62156fd5636a","toSide":"top"},
+		{"id":"2a86c235b42ac961","fromNode":"efcc62156fd5636a","fromSide":"bottom","toNode":"6c23a6d2d08eb431","toSide":"top"},
+		{"id":"e176ad3a3e568515","fromNode":"6c23a6d2d08eb431","fromSide":"right","toNode":"51a828f96865dc59","toSide":"left"},
+		{"id":"8deb6462bf26b3e4","fromNode":"6c23a6d2d08eb431","fromSide":"bottom","toNode":"82d2f7b972d5f1a4","toSide":"top"},
+		{"id":"51433f1e21a7c051","fromNode":"82d2f7b972d5f1a4","fromSide":"right","toNode":"c423fca1cc515fe1","toSide":"left"},
+		{"id":"e3305d636c44c705","fromNode":"82d2f7b972d5f1a4","fromSide":"bottom","toNode":"c467413349e57468","toSide":"top"},
+		{"id":"b6a628e3212a6d81","fromNode":"c467413349e57468","fromSide":"bottom","toNode":"40c85e9ddae823e9","toSide":"top"}
+	]
+}
