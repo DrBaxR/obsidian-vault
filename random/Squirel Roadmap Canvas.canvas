@@ -1,7 +1,7 @@
 {
 	"nodes":[
 		{"id":"9dff584d4e09e550","x":120,"y":-460,"width":377,"height":340,"type":"text","text":"# Planning\n- [ ] Decide core mechanics\n- [ ] Decide gameplay loop (overview)\n- [ ] Decide overall direction of the story\n- [ ] Decide monetization strategy\n- [ ] Take in consideration marketing/building a community\n- [ ] Decide platforms for game"},
-		{"type":"file","file":"Squirel Roadmap.md","id":"8274d5077a05b0fb","x":-920,"y":-460,"width":680,"height":1240},
+		{"type":"file","file":"random/Squirel Roadmap.md","id":"8274d5077a05b0fb","x":-920,"y":-460,"width":680,"height":1240},
 		{"id":"bfd973db67eb5c49","x":600,"y":-341,"width":200,"height":103,"type":"text","text":"**Game Design Document**"},
 		{"id":"efcc62156fd5636a","x":120,"y":-5,"width":377,"height":290,"type":"text","text":"# Pre-Production\n- [ ] Start development process\n- [ ] Get accustomed to Unity\n- [ ] Build prototypes\n- [ ] Make sure game idea is fun\n- [ ] Start working on actual game\n- [ ] Marketing start & Build community"},
 		{"id":"9a13761781a62a23","x":600,"y":105,"width":200,"height":70,"type":"text","text":"**Pitch**"},
